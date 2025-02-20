@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from 'next/image';
+import profileImg from '../public/profile.png';
 
 function Menu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -79,10 +81,10 @@ function Menu() {
 
 const Page = () => {
   return (
-    <div className="font-mono">
+    <div className="font-mono text-gray-100">
       <Menu />
 
-      <div className="bg-[url('/pictures/main.jpg')] bg-cover bg-center flex justify-center items-center mb-12 py-64">
+      <div className="bg-[url('../public/main.jpg')] bg-cover bg-center flex justify-center items-center py-56">
         <button
           className="p-4 px-12 bg-slate-400 rounded-2xl hover:bg-red-300"
           onClick={() => window.open("https://markusszalon.salonic.hu")}
@@ -91,74 +93,68 @@ const Page = () => {
         </button>
       </div>
 
+      
+      <div className="grid p-6 h-3/4 bg-slate-600" id="services">
 
-    <div className="m-0 p-0 h-3/4 " id="services">
+      <div className="justify-items-center mt-8 mb-3 space-y-5" id="block">
+        <p className="mb-12 p-2  rounded-md text-gray-100">Szolgáltatások</p>
 
-      <div className="justify-items-center mt-3 mb-3 space-y-5" id="block">
-        <p className="mb-12">Szolgáltatások</p>
+        <div className="inlineflex w-full text-xl justify-between items-center p-5 bg-slate-500 rounded-md sm:text-2xl" id="service">
+          
+            <div className="flex items-center justify-between w-full ">
+              <p className="">Hosszú Hajvágás</p>
+              <p>25.50$</p>
+            </div>
+            <div className="inline-flex text-sm sm:text-lgw-full mb-5">
+              <p>60 perc</p>
+            </div>
 
-        <div className="flex justify-between space-x-10" id="service">
-          <p>Hosszú Hajvágás</p>
-          <p>25.50$</p>
-          <p>60 min</p>
+
+            <div className="flex items-center justify-between w-full ">
+              <p className="">Hosszú Hajvágás</p>
+              <p>25.50$</p>
+            </div>
+            <div className="inline-flex text-sm sm:text-lgw-full mb-5">
+              <p>60 perc</p>
+            </div>
+
+
+            <div className="flex items-center justify-between w-full ">
+              <p className="">Hosszú Hajvágás</p>
+              <p>25.50$</p>
+            </div>
+            <div className="inline-flex text-sm sm:text-lgw-full mb-5">
+              <p>60 perc</p>
+            </div>
+
+
+            <div className="flex items-center justify-between w-full ">
+              <p className="">Hosszú Hajvágás</p>
+              <p>25.50$</p>
+            </div>
+            <div className="inline-flex text-sm sm:text-lgw-full mb-5">
+              <p>60 perc</p>
+            </div>
+
+
         </div>
-
-        <div className="flex justify-evenly space-x-10" id="service">
-          <p>Rövid Hajvágás</p>
-          <p>19.50$</p>
-          <p>30 min</p>
-        </div>
-
-        <div className="flex justify-between space-x-10" id="service">
-          <p>Hosszú Hajvágás</p>
-          <p>25.50$</p>
-          <p>60 min</p>
-        </div>
-
-        <div className="flex justify-evenly space-x-10" id="service">
-          <p>Rövid Hajvágás</p>
-          <p>19.50$</p>
-          <p>30 min</p>
-        </div>
-
-        <div className="flex justify-between space-x-10" id="service">
-          <p>Hosszú Hajvágás</p>
-          <p>25.50$</p>
-          <p>60 min</p>
-        </div>
-
-        <div className="flex justify-evenly space-x-10" id="service">
-          <p>Rövid Hajvágás</p>
-          <p>19.50$</p>
-          <p>30 min</p>
-        </div>
-
-        <div className="flex justify-between space-x-10" id="service">
-          <p>Hosszú Hajvágás</p>
-          <p>25.50$</p>
-          <p>60 min</p>
-        </div>
-
-        <div className="flex justify-evenly space-x-10" id="service">
-          <p>Rövid Hajvágás</p>
-          <p>19.50$</p>
-          <p>30 min</p>
-        </div>
-
-        <div className="flex justify-between space-x-10" id="service">
-          <p>Hosszú Hajvágás</p>
-          <p>25.50$</p>
-          <p>60 min</p>
-        </div>
-
-        <div className="flex justify-evenly space-x-10" id="service">
-          <p>Rövid Hajvágás</p>
-          <p>19.50$</p>
-          <p>30 min</p>
-        </div>
+  
           
       </div>
-    </div>
+      </div>
+
+      <div id="introduction" className="grid bg-slate-400 w-full pt-12 p-5 pb-12 sm:grid-cols-2">
+        <Image 
+          alt="profile pic"
+          src={profileImg}
+          className="flex justify-self-center justify-items-center w-2/5 pb-9"
+        />
+
+        <p className="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias ipsam temporibus commodi fugiat voluptatum illum similique. Ea harum et nobis, facilis nam unde enim voluptas, officia facere adipisci incidunt amet.</p>
+
+
+      </div>
+
     </div>
   );
 };
