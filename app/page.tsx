@@ -9,17 +9,6 @@ function Menu() {
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [navbar, setNavbar] = useState(true);
-
-  const changeBackground = () => {
-    if(window.scrollY >= 5) {
-      setNavbar(false)
-    } 
-    else {
-      setNavbar(true)
-    }
-  }
-
-  window.addEventListener('scroll', changeBackground);
  
 
   // Close menu if clicking outside (but not when clicking the button)
@@ -34,15 +23,34 @@ function Menu() {
         setIsOpen(false);
       }
     }
-
+  
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     }
-
+  
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen]);
+  
+  // Handle Navbar Background Change on Scroll (Fix for SSR)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const changeBackground = () => {
+        if (window.scrollY >= 5) {
+          setNavbar(false);
+        } else {
+          setNavbar(true);
+        }
+      };
+  
+      window.addEventListener("scroll", changeBackground);
+  
+      return () => {
+        window.removeEventListener("scroll", changeBackground);
+      };
+    }
+  }, []);
 
   return (
     
