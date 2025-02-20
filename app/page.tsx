@@ -8,6 +8,7 @@ function Menu() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const [navbar, setNavbar] = useState(true);
 
   // Close menu if clicking outside (but not when clicking the button)
   useEffect(() => {
@@ -31,9 +32,24 @@ function Menu() {
     };
   }, [isOpen]);
 
+  
+  const changeBackground = () => {
+    if(window.scrollY >= 5) {
+      setNavbar(false)
+    } 
+    else {
+      setNavbar(true)
+    }
+  }
+
+  window.addEventListener('scroll', changeBackground);
+
   return (
     <>
-      <div className="flex justify-between bg-gray-400 p-5 relative z-50">
+      <div 
+        className={navbar ? "flex justify-between bg-slate-400 bg-opacity-85 p-5 w-full z-50 fixed" : "flex justify-between bg-gray-400 bg-opacity-65 p-5 w-full z-50 fixed"}
+        
+        >
         <button className="text-2xl p-3">Márkus Szalon</button>
 
         <button
@@ -82,7 +98,7 @@ function Menu() {
 const Page = () => {
   return (
     <div className="font-mono text-gray-100">
-      <Menu />
+      <Menu/>
 
       <div className="bg-[url('../public/main.jpg')] bg-cover bg-center flex justify-center items-center py-56">
         <button
@@ -97,7 +113,7 @@ const Page = () => {
       <div className="grid p-6 h-3/4 bg-slate-600" id="services">
 
       <div className="justify-items-center mt-8 mb-3 space-y-5" id="block">
-        <p className="mb-12 p-2  rounded-md text-gray-100">Szolgáltatások</p>
+        <p className="mb-12 p-2  rounded-md text-gray-100 font-semibold tracking-wider text-xl">Szolgáltatások</p>
 
         <div className="inlineflex w-full text-xl justify-between items-center p-5 bg-slate-500 rounded-md sm:text-2xl" id="service">
           
@@ -108,16 +124,7 @@ const Page = () => {
             <div className="inline-flex text-sm sm:text-lgw-full mb-5">
               <p>60 perc</p>
             </div>
-
-
-            <div className="flex items-center justify-between w-full ">
-              <p className="">Hosszú Hajvágás</p>
-              <p>25.50$</p>
-            </div>
-            <div className="inline-flex text-sm sm:text-lgw-full mb-5">
-              <p>60 perc</p>
-            </div>
-
+            <div className="w-full h-0.5 bg-gray-100 bg-opacity-45 mb-5"></div>
 
             <div className="flex items-center justify-between w-full ">
               <p className="">Hosszú Hajvágás</p>
@@ -126,7 +133,7 @@ const Page = () => {
             <div className="inline-flex text-sm sm:text-lgw-full mb-5">
               <p>60 perc</p>
             </div>
-
+            <div className="w-full h-0.5 bg-gray-100 bg-opacity-45 mb-5"></div>
 
             <div className="flex items-center justify-between w-full ">
               <p className="">Hosszú Hajvágás</p>
@@ -135,6 +142,28 @@ const Page = () => {
             <div className="inline-flex text-sm sm:text-lgw-full mb-5">
               <p>60 perc</p>
             </div>
+            <div className="w-full h-0.5 bg-gray-100 bg-opacity-45 mb-5"></div>
+
+            <div className="flex items-center justify-between w-full ">
+              <p className="">Hosszú Hajvágás</p>
+              <p>25.50$</p>
+            </div>
+            <div className="inline-flex text-sm sm:text-lgw-full mb-5">
+              <p>60 perc</p>
+            </div>
+            <div className="w-full h-0.5 bg-gray-100 bg-opacity-45 mb-5"></div>
+
+            <div className="flex items-center justify-between w-full ">
+              <p className="">Hosszú Hajvágás</p>
+              <p>25.50$</p>
+            </div>
+            <div className="inline-flex text-sm sm:text-lgw-full" id="last">
+              <p>60 perc</p>
+            </div>
+            
+
+
+            
 
 
         </div>
