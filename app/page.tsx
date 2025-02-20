@@ -10,6 +10,18 @@ function Menu() {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [navbar, setNavbar] = useState(true);
 
+  const changeBackground = () => {
+    if(window.scrollY >= 5) {
+      setNavbar(false)
+    } 
+    else {
+      setNavbar(true)
+    }
+  }
+
+  window.addEventListener('scroll', changeBackground);
+ 
+
   // Close menu if clicking outside (but not when clicking the button)
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -32,19 +44,8 @@ function Menu() {
     };
   }, [isOpen]);
 
-  
-  const changeBackground = () => {
-    if(window.scrollY >= 5) {
-      setNavbar(false)
-    } 
-    else {
-      setNavbar(true)
-    }
-  }
-
-  window.addEventListener('scroll', changeBackground);
-
   return (
+    
     <>
       <div 
         className={navbar ? "flex justify-between bg-slate-400 bg-opacity-85 p-5 w-full z-50 fixed" : "flex justify-between bg-gray-400 bg-opacity-65 p-5 w-full z-50 fixed"}
