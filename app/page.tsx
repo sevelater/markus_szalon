@@ -3,6 +3,9 @@
 import { useState, useEffect, useRef } from "react";
 import Image from 'next/image';
 import profileImg from '../public/profile.png';
+import hair1 from '../public/hair1.jpg';
+import hair2 from '../public/hair2.jpg';
+import hair3 from '../public/hair3.jpg';
 
 function Menu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -90,12 +93,11 @@ function Menu() {
             ref={menuRef}
             className="fixed top-0 right-0 h-full w-80 bg-slate-400 bg-opacity-85 flex items-center justify-center transition-all duration-300"
           >
-            <ul className="text-zinc-950 text-xl w-2/4">
-              <li className="py-12 hover:text-white cursor-pointer w-0 h-0">Főoldal</li>
-              <li className="py-12 hover:text-white cursor-pointer w-0 h-0">Szolgáltatások</li>
-              <li className="py-12 hover:text-white cursor-pointer w-0 h-0">Portfólióm</li>
-              <li className="py-12 hover:text-white cursor-pointer w-0 h-0">Referencia</li>
-              <li className="py-12 hover:text-white cursor-pointer w-0 h-0">Elérhetőségek</li>
+            <ul className="grid text-zinc-950 text-xl w-2/4">
+              <a onClick={() => setIsOpen(!isOpen)} className="py-12 hover:text-white cursor-pointer w-0 h-0" href="#service">Szolgáltatások</a>
+              <a onClick={() => setIsOpen(!isOpen)} className="py-12 hover:text-white cursor-pointer w-0 h-0" href="#portfolio">Portfólióm</a>
+              <a onClick={() => setIsOpen(!isOpen)} className="py-12 hover:text-white cursor-pointer w-0 h-0" href="#referenc">Referencia</a>
+              <a onClick={() => setIsOpen(!isOpen)} className="py-12 hover:text-white cursor-pointer w-0 h-0" href="#get-in-touch">Elérhetőségek</a>
             </ul>
           </div>
         </div>
@@ -122,7 +124,7 @@ const Page = () => {
       <div className="grid p-6 h-3/4 bg-slate-600" id="services">
 
       <div className="justify-items-center mt-8 mb-3 space-y-5" id="block">
-        <p className="mb-12 p-2  rounded-md text-gray-100 font-semibold tracking-wider text-xl">Szolgáltatások</p>
+        <p className="mb-12 p-2  rounded-md text-gray-100 font-semibold tracking-wider text-xl" id="service">Szolgáltatások</p>
 
         <div className="inlineflex w-full text-xl justify-between items-center p-5 bg-slate-500 rounded-md sm:text-2xl" id="service">
           
@@ -181,7 +183,7 @@ const Page = () => {
       </div>
       </div>
 
-      <div id="introduction" className="grid bg-slate-400 w-full pt-12 p-5 pb-12 sm:grid-cols-2">
+      <div className="grid bg-slate-400 w-full pt-12 p-5 pb-12 sm:grid-cols-2" id="portfolio">
         <Image 
           alt="profile pic"
           src={profileImg}
@@ -189,8 +191,28 @@ const Page = () => {
         />
 
         <p className="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias ipsam temporibus commodi fugiat voluptatum illum similique. Ea harum et nobis, facilis nam unde enim voluptas, officia facere adipisci incidunt amet.</p>
+      </div>
 
-
+      <div className="grid p-7 bg-slate-500 justify-items-center w-full">
+        <p className="mb-8 p-2 rounded-md text-gray-100 font-semibold tracking-wider text-xl" id="referenc">Referencia Képek</p>
+        
+        <div className="grid justify-items-center sm:grid-col-2">
+        <Image
+         alt=""
+         src={hair1}
+         className="flex mb-8 rounded-md h-64 w-auto sm:w-auto"
+         />
+         <Image
+         alt=""
+         src={hair2}
+         className="flex mb-8 rounded-md h-64 w-auto sm:w-auto"
+         />
+         <Image
+         alt=""
+         src={hair3}
+         className="flex mb-8 rounded-md h-64 w-auto sm:w-auto"
+         />
+         </div>       
       </div>
 
     </div>
