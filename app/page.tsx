@@ -109,7 +109,7 @@ const Page = () => {
     <div className="font-mono text-gray-100">
       <Menu/>
 
-      <div className="bg-[url('../public/main.jpg')] bg-cover bg-center flex justify-center items-center py-3/4">
+      <div className="bg-[url('../public/main.jpg')] bg-cover bg-center flex justify-center items-center py-64">
         <button
           className="p-4 px-12 bg-slate-400 rounded-2xl hover:bg-red-300"
           onClick={() => window.open("https://markusszalon.salonic.hu")}
