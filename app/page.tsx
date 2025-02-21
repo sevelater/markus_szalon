@@ -111,7 +111,7 @@ const Page = () => {
     <div className="font-mono text-gray-100">
       <Menu/>
 
-      <div className="bg-[url('../public/main.jpg')] bg-cover bg-center flex justify-center items-center py-56">
+      <div className="bg-[url('../public/main.jpg')] bg-cover bg-center flex justify-center items-center py-64">
         <button
           className="p-4 px-12 bg-slate-400 rounded-2xl hover:bg-red-300"
           onClick={() => window.open("https://markusszalon.salonic.hu")}
@@ -138,8 +138,8 @@ const Page = () => {
             <div className="w-full h-0.5 bg-gray-100 bg-opacity-45 mb-5"></div>
 
             <div className="flex items-center justify-between w-full ">
-              <p className="">Hosszú Hajvágás</p>
-              <p>25.50$</p>
+              <p className="">Közepes Hajvágás</p>
+              <p>20.50$</p>
             </div>
             <div className="inline-flex text-sm sm:text-lgw-full mb-5">
               <p>60 perc</p>
