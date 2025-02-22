@@ -124,7 +124,7 @@ const Page = () => {
       <div className="grid p-6 h-3/4 bg-slate-600" id="services">
 
       <div className="justify-items-center mt-8 mb-3" id="block">
-        <p className= mb-12 p-2  rounded-md text-gray-100 font-semibold tracking-wider text-xl" id="service">Szolgáltatások</p>
+        <p className="text-center mb-12 p-2  rounded-md text-gray-100 font-semibold tracking-wider text-xl" id="service">Szolgáltatások</p>
 
         <div className="inlineflex w-full text-xl justify-between items-center p-5 bg-slate-500 rounded-md sm:text-2xl" id="service">
           
