@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from 'next/image';
 import profileImg from '../public/profile.png';
-import hair1 from '../public/hair1.jpg';
+
 import hair2 from '../public/hair2.jpg';
 import hair3 from '../public/hair3.jpg';
 
@@ -124,7 +124,7 @@ const Page = () => {
       <div className="grid p-6 h-3/4 bg-slate-600" id="services">
 
       <div className="justify-items-center mt-8 mb-3" id="block">
-        <p className="text-center mb-12 p-2  rounded-md text-gray-100 font-semibold tracking-wider text-xl" id="service">Szolgáltatások</p>
+        <p className="text-center mb-9 p-2  rounded-md text-gray-100 font-semibold tracking-wider text-xl scroll-mt-36" id="service">Szolgáltatások</p>
 
         <div className="inlineflex w-full text-xl justify-between items-center p-5 bg-slate-500 rounded-md sm:text-2xl" id="service">
           
@@ -183,7 +183,7 @@ const Page = () => {
       </div>
       </div>
 
-      <div className="grid bg-slate-400 w-full pt-12 p-5 pb-12 sm:grid-cols-2" id="portfolio">
+      <div className="grid bg-slate-400 w-full pt-12 p-5 pb-12 sm:grid-cols-2 scroll-mt-28" id="portfolio">
         <Image 
           alt="profile pic"
           src={profileImg}
@@ -193,26 +193,52 @@ const Page = () => {
         <p className="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias ipsam temporibus commodi fugiat voluptatum illum similique. Ea harum et nobis, facilis nam unde enim voluptas, officia facere adipisci incidunt amet.</p>
       </div>
 
-      <div className="grid p-7 bg-slate-500 justify-items-center w-full">
-        <p className="mb-8 p-2 rounded-md text-gray-100 font-semibold tracking-wider text-xl" id="referenc">Referencia Képek</p>
+      <div className="p-7 bg-slate-500 justify-items-center w-full">
+        <p className="mb-8 p-2 rounded-md text-gray-100 font-semibold tracking-wider text-xl scroll-mt-32" id="referenc">Referencia Képek</p>
         
-        <div className="grid justify-items-center sm:grid-col-2">
-        <Image
-         alt=""
-         src={hair1}
-         className="flex mb-8 rounded-md h-64 w-auto sm:w-auto"
-         />
-         <Image
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-5">
+
+          <div className="">
+
+          <Image
          alt=""
          src={hair2}
-         className="flex mb-8 rounded-md h-64 w-auto sm:w-auto"
+         width={300}
+         height={300}
+         className="rounded-lg"
          />
-         <Image
+          </div>
+
+          <div className="">
+
+          <Image
          alt=""
          src={hair3}
-         className="flex mb-8 rounded-md h-64 w-auto sm:w-auto"
+         width={300}
+         height={300}
+         className="rounded-lg"
          />
-         </div>       
+          </div>
+
+          <div className="">
+
+          <Image
+         alt=""
+         src={hair3}
+         width={300}
+         height={300}
+         className="rounded-lg"
+         />
+          </div>
+
+          
+
+
+
+        </div>
+
+        <button className="mt-12 p-5 w-32 rounded-md bg-slate-600 hover:bg-slate-700">Galéria</button>
+
       </div>
 
     </div>
