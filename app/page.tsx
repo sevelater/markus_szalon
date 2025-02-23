@@ -193,12 +193,10 @@ const Page = () => {
         <p className="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias ipsam temporibus commodi fugiat voluptatum illum similique. Ea harum et nobis, facilis nam unde enim voluptas, officia facere adipisci incidunt amet.</p>
       </div>
 
-      <div className="p-7 bg-slate-500 justify-items-center w-full">
+      <div className="p-7 bg-slate-500 justify-items-center w-full text-center">
         <p className="mb-8 p-2 rounded-md text-gray-100 font-semibold tracking-wider text-xl scroll-mt-32" id="referenc">Referencia Képek</p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-5">
-
-          <div className="">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
 
           <Image
          alt=""
@@ -207,9 +205,6 @@ const Page = () => {
          height={300}
          className="rounded-lg"
          />
-          </div>
-
-          <div className="">
 
           <Image
          alt=""
@@ -218,10 +213,7 @@ const Page = () => {
          height={300}
          className="rounded-lg"
          />
-          </div>
-
-          <div className="">
-
+       
           <Image
          alt=""
          src={hair3}
@@ -229,15 +221,12 @@ const Page = () => {
          height={300}
          className="rounded-lg"
          />
-          </div>
-
           
-
 
 
         </div>
 
-        <button className="mt-12 p-5 w-32 rounded-md bg-slate-600 hover:bg-slate-700">Galéria</button>
+        <button className="mt-12 p-5 w-32 rounded-md bg-slate-600 hover:bg-slate-700 justify-self-center">Galéria</button>
 
       </div>
 
