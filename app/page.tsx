@@ -242,18 +242,17 @@ const Page = () => {
          />
           </div>
         </div>
-        <button className="items-center p-5 rounded-md px-8 w-auto bg-slate-600 hover:bg-slate-700 mt-12 mb-5 ">Galéria</button>      
+        <button className="items-center content-center self-center p-5 rounded-md px-8 w-auto bg-slate-600 hover:bg-slate-700 mt-12 mb-5 ">Galéria</button>      
       </div>
 
       <div className="py-0.5 bg-slate-900" id="line"></div>
 
       <div className="bg-[url('../public/background.png')] bg-cover bg-center bg-opacity-15 h-auto justify-items-center text-center w-full overflow-hidden lg:bg-[url('../public/calendar.jpg')] md:bg-[url('../public/desktop.jpg')]" id="schedule__1">
 
-      <div
-        className="w-full justify-items-center bg-black bg-opacity-55">
+      <div className="w-full bg-black bg-opacity-55">
          
         <div 
-        className="flex gap-12 mx-1 py-5 px-9 sm:scale-110 md:scale-120 text-sm" 
+        className="flex gap-12 mx-1 py-5 px-9 sm:scale-110 md:scale-120 text-sm justify-items-center" 
         id="schedule"
         >
 
