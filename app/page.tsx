@@ -72,7 +72,7 @@ function Menu() {
         
         >
         <button
-          className={`text-2xl p-3 z-40 ${isOpen ? "opacity-20" : "opacity-100"}`}>Márkus Szalon</button>
+          className={`text-2xl p-3 z-40 ${isOpen ? "opacity-30" : "opacity-100 font-sans"}`}>Márkus Szalon</button>
 
         <button
           ref={buttonRef}
@@ -118,10 +118,10 @@ function Menu() {
 
 const Page = () => {
   return (
-    <div className="font-mono text-gray-100">
+    <div className="font-mono text-gray-100 overflow-hidden">
       <Menu/>
 
-      <div className="bg-[url('../public/main.jpg')] bg-cover bg-center flex justify-center items-center py-64">
+      <div className="bg-[url('../public/main.jpg')] bg-cover bg-center h-32 flex justify-center items-center py-64">
         <button
           className="p-4 px-12 bg-slate-400 rounded-2xl hover:bg-red-300"
           onClick={() => window.open("https://markusszalon.salonic.hu")}
@@ -192,11 +192,13 @@ const Page = () => {
 
       <div className="py-0.5 bg-slate-900"></div>
 
-      <div className="grid bg-slate-400 w-full pt-12 p-5 pb-12 sm:grid-cols-2 scroll-mt-28" id="portfolio">
+      <div className="grid bg-slate-400 w-auto pt-12 p-5 pb-12 sm:grid-cols-2 scroll-mt-28" id="portfolio">
         <Image 
           alt="profile pic"
           src={profileImg}
-          className="flex justify-self-center justify-items-center w-2/5 pb-9"
+          width={150}
+          height={150}
+          className=" justify-self-center justify-items-center pb-9 lg:w-52"
         />
 
         <p className="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias ipsam temporibus commodi fugiat voluptatum illum similique. Ea harum et nobis, facilis nam unde enim voluptas, officia facere adipisci incidunt amet.</p>
@@ -207,7 +209,7 @@ const Page = () => {
       <div className="p-7 bg-slate-500 w-full scroll-mt-24 justify-center justify-items-center" id="referenc">
         <p className="text-center mb-8 p-2 rounded-md text-gray-100 font-semibold tracking-wider text-xl">Referencia Képek</p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center justify-items-center gap-5">
 
           <div className="">
 
@@ -242,12 +244,12 @@ const Page = () => {
          />
           </div>
         </div>
-        <button className="self-center p-5 rounded-md px-8 w-auto bg-slate-600 hover:bg-slate-700 mt-12 mb-5">Galéria</button>      
+        <button className="justify-self-center p-5 rounded-md px-8 w-auto bg-slate-600 hover:bg-slate-700 mt-12 mb-5">Galéria</button>      
       </div>
 
       <div className="py-0.5 bg-slate-900" id="line"></div>
 
-      <div className="bg-[url('../public/background.png')] bg-cover bg-center bg-opacity-15
+      <div className="bg-[url('../public/background.png')] bg-cover bg-center bg-opacity-0
                       h-auto justify-items-center text-center w-full 
                       lg:bg-[url('../public/calendar.jpg')] 
                       md:bg-[url('../public/desktop.jpg')]" id="schedule__1">
@@ -259,26 +261,26 @@ const Page = () => {
         id="schedule"
         >
 
-          <div className="text-gray-200 pt-5 pb-5">
-            <h3>Hétfő</h3>
-            <h3>Kedd</h3>
-            <h3>Szerda</h3>
-            <h3>Csütörtök</h3>
-            <h3>Péntek</h3>
-            <h3>Szombat</h3>
-            <h3>Vasárnap</h3>
+          <div className="text-gray-200 pt-5 pb-5 ">
+            <h3 className="mb-1 text-sm">Hétfő</h3>
+            <h3 className="mb-1 text-sm">Kedd</h3>
+            <h3 className="mb-1 text-sm">Szerda</h3>
+            <h3 className="mb-1 text-sm">Csütörtök</h3>
+            <h3 className="mb-1 text-sm">Péntek</h3>
+            <h3 className="mb-1 text-sm">Szombat</h3>
+            <h3 className="mb-1 text-sm">Vasárnap</h3>
           </div>
 
-          <div className="bg-slate-50 h-auto p-px pt-6 pb-6"></div>
+          <div className="bg-slate-50 h-auto p-px pt-5 pb-5 my-2 lg:my-3 md:my-2.5"></div>
 
           <div className="text-gray-200 pt-5 pb-5 justify-items-center">
-            <h4>Zárva</h4>
-            <h4>8:00-20:00</h4>
-            <h4>8:00-20:00</h4>
-            <h4>8:00-20:00</h4>
-            <h4>8:00-20:00</h4>
-            <h4>7:00-16:00</h4>
-            <h4>Zárva</h4>
+            <h4 className="mb-1 text-sm">Zárva</h4>
+            <h4 className="mb-1 text-sm">8:00-20:00</h4>
+            <h4 className="mb-1 text-sm">8:00-20:00</h4>
+            <h4 className="mb-1 text-sm">8:00-20:00</h4>
+            <h4 className="mb-1 text-sm">8:00-20:00</h4>
+            <h4 className="mb-1 text-sm">7:00-16:00</h4>
+            <h4 className="mb-1 text-sm">Zárva</h4>
           </div>
         </div>
       </div>
@@ -286,22 +288,28 @@ const Page = () => {
 
       <div className="py-0.5 bg-slate-900" id="line"></div>
 
-      <div className="grid lg:justify-between h-auto bg-slate-600 sm:grid md:flex lg:flex p-3 md:justify-between" id="get-in-touch">
+      <div className="grid lg:justify-evenly h-auto bg-slate-600 sm:grid md:flex lg:flex p-3 gap-y-8 lg:gap-x-12 md:gap-x-12" id="get-in-touch">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1123.047502066955!2d18.929247183500305!3d47.50918967836878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741df0050b826a9%3A0x5f2293613cb47231!2sM%C3%A1rkus%20Szalon!5e0!3m2!1shu!2shu!4v1740394854670!5m2!1shu!2shu"
-          height="300"
+          height="280"
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          className="pb-12 sm:w-full w-full md:w-2/3 lg:w-6/12 md:rounded-lg lg:rounded-lg"
+          className="rounded-md sm:w-full w-full md:w-2/3 lg:w-6/12 md:rounded-lg lg:rounded-lg md:h-56"
         ></iframe>
-          <div className="mt-3 p-8 bg-slate-800">
-          <h3>Telefon</h3>
+          <div className="pb-5 px-5 pt-5 h-auto bg-slate-800 rounded-md md:rounded-lg lg:rounded-lg font-sans">
+
+          <p className="mb-3">Ha bármilyen kérdése vagy kérése van, örömmel állok rendelkezésére!</p> 
+          <p className="mb-3">Kérek mindenkit hogy a  <span className="text-red-300">festés időpont egyeztetés során</span> telefonon beszéljük át</p> 
+          <p>a haj <span className="text-red-300">előtörténetét</span>, hogy tudjam milyen <span className="text-red-300">időben</span> milyen <span className="text-red-300">munka</span> folyamatra készüljek.</p> 
+
+          <br></br>
+          <h3 className="text-indigo-400">Telefon</h3>
           <p>+36 70 598 5439</p>
           <br></br>
-          <h3>Email</h3>
-          <p>abcd@gmail.com</p>
+          <h3 className="text-indigo-400">Email</h3>
+          <p>gabika20040218@gmail.com</p>
           </div>
       </div>
 
