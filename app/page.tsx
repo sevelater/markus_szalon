@@ -201,8 +201,10 @@ const Page = () => {
 
         <p className="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias ipsam temporibus commodi fugiat voluptatum illum similique. Ea harum et nobis, facilis nam unde enim voluptas, officia facere adipisci incidunt amet.</p>
       </div>
+
       <div className="py-0.5 bg-slate-900"></div>
-      <div className="p-7 bg-slate-500 w-full scroll-mt-24" id="referenc">
+
+      <div className="p-7 bg-slate-500 w-full scroll-mt-24 justify-items-center" id="referenc">
         <p className="text-center mb-8 p-2 rounded-md text-gray-100 font-semibold tracking-wider text-xl">Referencia Képek</p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-5">
@@ -240,12 +242,12 @@ const Page = () => {
          />
           </div>
         </div>
-        <button className="justify-self-center text-center p-5 rounded-md px-8 w-auto bg-slate-600 hover:bg-slate-700 mt-12 mb-5 ">Galéria</button>      
+        <button className="items-center p-5 rounded-md px-8 w-auto bg-slate-600 hover:bg-slate-700 mt-12 mb-5 ">Galéria</button>      
       </div>
 
       <div className="py-0.5 bg-slate-900" id="line"></div>
 
-      <div className="bg-[url('../public/background.png')] bg-cover bg-center bg-opacity-15 h-auto justify-items-center w-full overflow-hidden lg:bg-[url('../public/calendar.jpg')] md:bg-[url('../public/desktop.jpg')]" id="schedule__1">
+      <div className="bg-[url('../public/background.png')] bg-cover bg-center bg-opacity-15 h-auto justify-items-center text-center w-full overflow-hidden lg:bg-[url('../public/calendar.jpg')] md:bg-[url('../public/desktop.jpg')]" id="schedule__1">
 
       <div
         className="w-full justify-items-center bg-black bg-opacity-55">
