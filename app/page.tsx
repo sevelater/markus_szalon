@@ -251,30 +251,30 @@ const Page = () => {
         className="w-full justify-items-center bg-black bg-opacity-55">
          
         <div 
-        className="flex gap-12 mx-1 py-5 px-9 sm:scale-110 md:scale-120 text-sm justify-items-center items-center content-center" 
+        className="flex gap-12 mx-1 py-5 px-9 sm:scale-110 md:scale-120 text-sm" 
         id="schedule"
         >
 
           <div className="text-gray-200 pt-5 pb-5 text-center">
-            <h3>Hétfő</h3>
-            <h3>Kedd</h3>
-            <h3>Szerda</h3>
-            <h3>Csütörtök</h3>
-            <h3>Péntek</h3>
-            <h3>Szombat</h3>
-            <h3>Vasárnap</h3>
+            <h3 className="text-center">Hétfő</h3>
+            <h3 className="text-center">Kedd</h3>
+            <h3 className="text-center">Szerda</h3>
+            <h3 className="text-center">Csütörtök</h3>
+            <h3 className="text-center">Péntek</h3>
+            <h3 className="text-center">Szombat</h3>
+            <h3 className="text-center">Vasárnap</h3>
           </div>
 
           <div className="bg-slate-50 h-auto p-px pt-6 pb-6"></div>
 
           <div className="text-gray-200 pt-5 pb-5 justify-items-center text-center">
-            <h4>Zárva</h4>
-            <h4>8:00-20:00</h4>
-            <h4>8:00-20:00</h4>
-            <h4>8:00-20:00</h4>
-            <h4>8:00-20:00</h4>
-            <h4>7:00-16:00</h4>
-            <h4>Zárva</h4>
+            <h4 className="text-center">Zárva</h4>
+            <h4 className="text-center">8:00-20:00</h4>
+            <h4 className="text-center">8:00-20:00</h4>
+            <h4 className="text-center">8:00-20:00</h4>
+            <h4 className="text-center">8:00-20:00</h4>
+            <h4 className="text-center">7:00-16:00</h4>
+            <h4 className="text-center">Zárva</h4>
           </div>
         </div>
       </div>
