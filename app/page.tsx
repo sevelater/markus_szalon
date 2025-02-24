@@ -203,7 +203,7 @@ const Page = () => {
       </div>
       <div className="py-0.5 bg-slate-900"></div>
       <div className="p-7 bg-slate-500 justify-items-center w-full scroll-mt-24" id="referenc">
-        <p className="mb-8 p-2 rounded-md text-gray-100 font-semibold tracking-wider text-xl">Referencia Képek</p>
+        <p className="justify-self-center mb-8 p-2 rounded-md text-gray-100 font-semibold tracking-wider text-xl">Referencia Képek</p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-5">
 
@@ -267,7 +267,7 @@ const Page = () => {
 
           <div className="bg-slate-50 h-auto p-px pt-6 pb-6"></div>
 
-          <div className="text-gray-200 pt-5 pb-5 ">
+          <div className="text-gray-200 pt-5 pb-5 justify-items-center">
             <h4>Zárva</h4>
             <h4>8:00-20:00</h4>
             <h4>8:00-20:00</h4>
