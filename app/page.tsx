@@ -123,9 +123,8 @@ const Page = () => {
 
       <div className="bg-[url('../public/main.jpg')] bg-cover bg-center h-32 flex justify-center items-center py-64">
         <button
-          className="p-4 px-12 bg-slate-400 rounded-2xl hover:bg-red-300"
-          onClick={() => window.open("https://markusszalon.salonic.hu")}
-        >
+          className="p-4 px-12 bg-slate-400 rounded-2xl hover:bg-slate-500"
+          onClick={() => window.open("https://markusszalon.salonic.hu")}>
           Foglalás
         </button>
       </div>
@@ -244,8 +243,13 @@ const Page = () => {
          />
           </div>
         </div>
-        <button className="justify-self-center p-5 rounded-md px-8 w-auto bg-slate-600 hover:bg-slate-700 mt-12 mb-5">Galéria</button>      
+
+        <div className="flex justify-center items-center">
+        <button className="p-5 rounded-lg px-8 bg-slate-600 hover:bg-slate-700 mt-12 mb-5">Galéria</button>      
+        </div>
+        
       </div>
+
 
       <div className="py-0.5 bg-slate-900" id="line"></div>
 
