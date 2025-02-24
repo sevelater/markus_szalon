@@ -205,7 +205,7 @@ const Page = () => {
       <div className="p-7 bg-slate-500 justify-items-center w-full scroll-mt-24" id="referenc">
         <p className="mb-8 p-2 rounded-md text-gray-100 font-semibold tracking-wider text-xl">Referencia Képek</p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-5">
 
           <div className="">
 
@@ -240,7 +240,7 @@ const Page = () => {
          />
           </div>
         </div>
-        <button className="p-5 rounded-md px-8 w-auto bg-slate-600 hover:bg-slate-700 mt-12 mb-5 ">Galéria</button>      
+        <button className="justify-self-center p-5 rounded-md px-8 w-auto bg-slate-600 hover:bg-slate-700 mt-12 mb-5 ">Galéria</button>      
       </div>
 
       <div className="py-0.5 bg-slate-900" id="line"></div>
@@ -251,7 +251,7 @@ const Page = () => {
         className="w-full justify-items-center bg-black bg-opacity-55">
          
         <div 
-        className="flex gap-12 mx-1 py-5 px-9 sm:scale-110 md:scale-120 text-sm" 
+        className="flex gap-12 mx-1 py-5 px-9 sm:scale-110 md:scale-120 text-sm justify-items-center" 
         id="schedule"
         >
 
