@@ -204,10 +204,10 @@ const Page = () => {
 
       <div className="py-0.5 bg-slate-900"></div>
 
-      <div className="p-7 bg-slate-500 w-full scroll-mt-24 justify-items-center" id="referenc">
+      <div className="p-7 bg-slate-500 w-full scroll-mt-24 justify-center justify-items-center" id="referenc">
         <p className="text-center mb-8 p-2 rounded-md text-gray-100 font-semibold tracking-wider text-xl">Referencia Képek</p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-5">
 
           <div className="">
 
@@ -242,40 +242,43 @@ const Page = () => {
          />
           </div>
         </div>
-        <button className="items-center content-center self-center p-5 rounded-md px-8 w-auto bg-slate-600 hover:bg-slate-700 mt-12 mb-5 ">Galéria</button>      
+        <button className="self-center p-5 rounded-md px-8 w-auto bg-slate-600 hover:bg-slate-700 mt-12 mb-5">Galéria</button>      
       </div>
 
       <div className="py-0.5 bg-slate-900" id="line"></div>
 
-      <div className="bg-[url('../public/background.png')] bg-cover bg-center bg-opacity-15 h-auto justify-items-center text-center w-full overflow-hidden lg:bg-[url('../public/calendar.jpg')] md:bg-[url('../public/desktop.jpg')]" id="schedule__1">
+      <div className="bg-[url('../public/background.png')] bg-cover bg-center bg-opacity-15
+                      h-auto justify-items-center text-center w-full 
+                      lg:bg-[url('../public/calendar.jpg')] 
+                      md:bg-[url('../public/desktop.jpg')]" id="schedule__1">
 
       <div className="w-full bg-black bg-opacity-55">
          
         <div 
-        className="flex gap-12 mx-1 py-5 px-9 sm:scale-110 md:scale-120 text-sm justify-items-center" 
+        className="flex gap-12 mx-1 py-5 px-9 sm:scale-110 md:scale-120 text-sm justify-center w-full" 
         id="schedule"
         >
 
-          <div className="text-gray-200 pt-5 pb-5 text-center">
-            <h3 className="text-center">Hétfő</h3>
-            <h3 className="text-center">Kedd</h3>
-            <h3 className="text-center">Szerda</h3>
-            <h3 className="text-center">Csütörtök</h3>
-            <h3 className="text-center">Péntek</h3>
-            <h3 className="text-center">Szombat</h3>
-            <h3 className="text-center">Vasárnap</h3>
+          <div className="text-gray-200 pt-5 pb-5">
+            <h3>Hétfő</h3>
+            <h3>Kedd</h3>
+            <h3>Szerda</h3>
+            <h3>Csütörtök</h3>
+            <h3>Péntek</h3>
+            <h3>Szombat</h3>
+            <h3>Vasárnap</h3>
           </div>
 
           <div className="bg-slate-50 h-auto p-px pt-6 pb-6"></div>
 
-          <div className="text-gray-200 pt-5 pb-5 justify-items-center text-center">
-            <h4 className="text-center">Zárva</h4>
-            <h4 className="text-center">8:00-20:00</h4>
-            <h4 className="text-center">8:00-20:00</h4>
-            <h4 className="text-center">8:00-20:00</h4>
-            <h4 className="text-center">8:00-20:00</h4>
-            <h4 className="text-center">7:00-16:00</h4>
-            <h4 className="text-center">Zárva</h4>
+          <div className="text-gray-200 pt-5 pb-5 justify-items-center">
+            <h4>Zárva</h4>
+            <h4>8:00-20:00</h4>
+            <h4>8:00-20:00</h4>
+            <h4>8:00-20:00</h4>
+            <h4>8:00-20:00</h4>
+            <h4>7:00-16:00</h4>
+            <h4>Zárva</h4>
           </div>
         </div>
       </div>
@@ -295,7 +298,7 @@ const Page = () => {
         ></iframe>
           <div className="mt-3 p-8 bg-slate-800">
           <h3>Telefon</h3>
-          <p>+36 30 123 4567</p>
+          <p>+36 70 598 5439</p>
           <br></br>
           <h3>Email</h3>
           <p>abcd@gmail.com</p>
