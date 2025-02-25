@@ -10,7 +10,7 @@ import hair2 from '../public/hair2.jpg';
 import hair3 from '../public/hair3.jpg';
 
 
-export function EmblaCarousel () {
+function EmblaCarousel () {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 3000 })])
 
   return (
