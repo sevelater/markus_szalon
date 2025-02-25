@@ -3,9 +3,51 @@
 import { useState, useEffect, useRef } from "react";
 import Image from 'next/image';
 import profileImg from '../public/profile.png';
+import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
 
 import hair2 from '../public/hair2.jpg';
 import hair3 from '../public/hair3.jpg';
+
+
+export function EmblaCarousel () {
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 3000 })])
+
+  return (
+    <div className="embla h-56 w-2/4 rounded-lg " ref={emblaRef}>
+      <div className="embla__container h-full gap-x-5">
+        <div className="embla__slide flex items-center justify-center">
+          <Image
+            alt=""
+            src={hair2}
+            className=""
+            />
+        </div>
+        <div className="embla__slide flex items-center justify-center">
+        <Image
+            alt=""
+            src={hair3}
+            className=""
+            />
+        </div>
+        <div className="embla__slide flex items-center justify-center">
+        <Image
+            alt=""
+            src={hair2}
+            className=""
+            />
+        </div>
+        <div className="embla__slide flex items-center justify-center">
+        <Image
+            alt=""
+            src={hair3}
+            className=""
+            />
+        </div>
+      </div>
+    </div>
+  )
+}
 
 
 function Menu() {
@@ -68,7 +110,7 @@ function Menu() {
     <>
       <div
         ref={navbarRef}
-        className={navbar ? "flex justify-between bg-slate-400 bg-opacity-85 p-5 w-full z-40 fixed" : "flex justify-between bg-gray-400 bg-opacity-65 p-5 w-full z-40 fixed"}
+        className={navbar ? "flex justify-between from-slate-400 to-slate-600 bg-gradient-to-br bg-opacity-85 p-5 w-full z-40 fixed" : "flex justify-between bg-slate-400 bg-opacity-65 p-5 w-full z-40 fixed"}
         
         >
         <button
@@ -101,7 +143,7 @@ function Menu() {
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-40">
           <div
             ref={menuRef}
-            className="fixed top-0 right-0 h-full w-80 bg-slate-400 bg-opacity-85 flex items-center justify-center transition-all duration-300"
+            className="fixed top-0 right-0 h-full w-80 from-slate-400 to-slate-600 bg-gradient-to-br bg-opacity-85 flex items-center justify-center transition-all duration-300"
           >
             <ul className="grid text-zinc-950 text-xl w-2/4">
               <a onClick={() => setIsOpen(!isOpen)} className="py-12 hover:text-white cursor-pointer w-0 h-0" href="#service">Szolgáltatások</a>
@@ -131,12 +173,12 @@ const Page = () => {
 
       <div className="py-0.5 bg-slate-900"></div>
 
-      <div className="grid p-6 h-3/4 bg-slate-600" id="services">
+      <div className="grid p-6 h-3/4 bg-gradient-to-tr from-slate-600 to-slate-900" id="services">
 
       <div className="justify-items-center mt-8 mb-3" id="block">
         <p className="text-center mb-9 p-2  rounded-md text-gray-100 font-semibold tracking-wider text-xl scroll-mt-36" id="service">Szolgáltatások</p>
 
-        <div className="inlineflex w-full text-xl justify-between items-center p-5 bg-slate-500 rounded-md sm:text-2xl" id="service">
+        <div className="inlineflex w-full text-xl justify-between items-center p-5 rounded-md sm:text-2xl" id="service">
           
             <div className="flex items-center justify-between w-full ">
               <p className="">Hosszú Hajvágás</p>
@@ -189,9 +231,9 @@ const Page = () => {
       </div>
       </div>
 
-      <div className="py-0.5 bg-slate-900"></div>
+      <div className="py-0.5 bg-slate-900" id="line"></div>
 
-      <div className="grid bg-slate-400 w-auto pt-12 p-5 pb-12 sm:grid-cols-2 scroll-mt-28" id="portfolio">
+      <div className="grid from-slate-400 to-slate-600 bg-gradient-to-br w-auto pt-12 p-5 pb-12 sm:grid-cols-2 scroll-mt-28" id="portfolio">
         <Image 
           alt="profile pic"
           src={profileImg}
@@ -205,44 +247,12 @@ const Page = () => {
 
       <div className="py-0.5 bg-slate-900"></div>
 
-      <div className="p-7 bg-slate-500 w-full scroll-mt-24 justify-center justify-items-center" id="referenc">
+      <div className="p-7 bg-gradient-to-bl from-slate-600 to-slate-900 w-full scroll-mt-24 justify-center justify-items-center" id="referenc">
         <p className="text-center mb-8 p-2 rounded-md text-gray-100 font-semibold tracking-wider text-xl">Referencia Képek</p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center justify-items-center gap-5">
+         
 
-          <div className="">
+          <EmblaCarousel/>
 
-          <Image
-         alt=""
-         src={hair2}
-         width={300}
-         height={300}
-         className="rounded-lg"
-         />
-          </div>
-
-          <div className="">
-
-          <Image
-         alt=""
-         src={hair3}
-         width={300}
-         height={300}
-         className="rounded-lg"
-         />
-          </div>
-
-          <div className="">
-
-          <Image
-         alt=""
-         src={hair3}
-         width={300}
-         height={300}
-         className="rounded-lg"
-         />
-          </div>
-        </div>
 
         <div className="flex justify-center items-center">
         <button className="p-5 rounded-lg px-8 bg-slate-600 hover:bg-slate-700 mt-12 mb-5">Galéria</button>      
@@ -292,7 +302,7 @@ const Page = () => {
 
       <div className="py-0.5 bg-slate-900" id="line"></div>
 
-      <div className="grid lg:justify-evenly h-auto bg-slate-600 sm:grid md:flex lg:flex p-3 gap-y-8 lg:gap-x-12 md:gap-x-12" id="get-in-touch">
+      <div className="grid lg:justify-evenly h-auto from-slate-500 to-slate-700 bg-gradient-to-bl sm:grid md:flex lg:flex p-3 gap-y-8 lg:gap-x-12 md:gap-x-12" id="get-in-touch">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1123.047502066955!2d18.929247183500305!3d47.50918967836878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741df0050b826a9%3A0x5f2293613cb47231!2sM%C3%A1rkus%20Szalon!5e0!3m2!1shu!2shu!4v1740394854670!5m2!1shu!2shu"
           height="280"
