@@ -8,7 +8,7 @@ import Menu from '../navbar/page';
 import Footer from '../connect-us/page';
 
 
-export function EmblaCarousel () {
+function Page () {
   const [emblaRef] = useEmblaCarousel({ loop: true })
 
   return (
@@ -66,4 +66,4 @@ export function EmblaCarousel () {
   )
 }
 
-export default EmblaCarousel;
+export default Page;
