@@ -36,31 +36,41 @@ function Menu() {
 
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
+      setHidden(true);
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      setHidden(false);
     };
   }, [isOpen]);
 
   return (
     <>
-      
-      <div className="fixed top-0 left-0 w-full flex justify-between bg-slate-100 drop-shadow-lg bg-opacity-20 p-5 z-30">
+      <div className="flex w-full fixed justify-between">
+      <motion.div 
+        variants= {{
+          visible: { opacity: 1 },
+          hidden: { y: "-100%" },
+          
+        }}
+        animate={hidden ? "hidden" : "visible"}
+        transition={{ ease: "easeOut", duration: 0.2  }}
 
-        <motion.a
-          variants= {{
-            visible: { opacity: 1 },
-            hidden: { x: "-150%" },
-          }}
-          animate={hidden ? "hidden" : "visible"}
+      className={`fixed top-0 left-0 w-full flex justify-between bg-slate-100 drop-shadow-lg backdrop-blur-md bg-opacity-20 p-5 z-30 ${
+              isOpen ? "opacity-0" : "opacity-100"
+            }`}>
+
+        <a
+          
 
           href="../"
           className="text-2xl font-sans transition-opacity">
           Márkus Szalon
-        </motion.a>
+        </a>
 
-        
+      </motion.div>
+      <div className="fixed flex z-30 top-8 right-6">
         <button
           ref={buttonRef}
           onClick={() => setIsOpen(!isOpen)}
@@ -89,18 +99,19 @@ function Menu() {
         <div className="fixed inset-0 bg-transparent z-20">
           <div
             ref={menuRef}
-            className="fixed top-0 right-0 h-full w-72 bg-slate-800 border-l-2 backdrop-blur-md bg-opacity-30 flex items-center justify-center"
+            className="fixed top-0 right-0 h-full w-72 bg-slate-900 border-l backdrop-blur-md bg-opacity-30 flex items-center justify-center text-center"
           >
-            <ul className="grid text-slate-400 text-xl w-2/4 text-center">
-              <a onClick={() => setIsOpen(!isOpen)} className="py-12 hover:text-white cursor-pointer w-0 h-0" href="../">Főoldal</a>
-              <a onClick={() => setIsOpen(!isOpen)} className="py-12 hover:text-white cursor-pointer w-0 h-0" href="#service">Szolgáltatások</a>
-              <a onClick={() => setIsOpen(!isOpen)} className="py-12 hover:text-white cursor-pointer w-0 h-0" href="#portfolio">Portfólióm</a>
-              <Link href="../components/gallery" onClick={() => setIsOpen(!isOpen)} className="py-12 hover:text-white cursor-pointer w-0 h-0" >Referencia</Link>
-              <a onClick={() => setIsOpen(!isOpen)} className="py-12 hover:text-white cursor-pointer w-0 h-0" href="#get-in-touch">Elérhetőségek</a>
+            <ul className="grid text-slate-100 text-xl w-2/4 text-center">
+              <a onClick={() => setIsOpen(!isOpen)} className="my-10 hover:text-white hover:bg-opacity-30 w-full p-1 cursor-pointer h-0 text-center" href="../">Főoldal</a>
+              <a onClick={() => setIsOpen(!isOpen)} className="my-10 hover:text-white cursor-pointer w-full h-0" href="#service">Szolgáltatások</a>
+              <a onClick={() => setIsOpen(!isOpen)} className="my-10 hover:text-white cursor-pointer w-full h-0" href="#portfolio">Portfólióm</a>
+              <Link href="../components/gallery" onClick={() => setIsOpen(!isOpen)} className="my-10 hover:text-white cursor-pointer w-full h-0" >Referencia</Link>
+              <a onClick={() => setIsOpen(!isOpen)} className="my-10 hover:text-white cursor-pointer w-full h-0" href="#get-in-touch">Elérhetőségek</a>
             </ul>
           </div>
         </div>
       )}
+      </div>
     </>
   );
 }
