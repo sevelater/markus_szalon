@@ -11,7 +11,7 @@ function Page () {
     
     <>
 
-      <div className="text-slate-100 bg-gradient-to-tr from-slate-600 to-slate-900 pt-12">
+      <div className="font-mono text-slate-100 bg-gradient-to-tr from-slate-600 to-slate-900 pt-12">
 
 
       <Menu/>
@@ -93,7 +93,7 @@ function Page () {
 
     <div className="py-0.5 bg-slate-900" id="line"></div>
 
-    <Footer/>
+    <span className="font-sans"><Footer/></span>
 
     </div>
 
