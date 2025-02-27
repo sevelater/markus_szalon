@@ -14,7 +14,7 @@ function Page () {
       <div className="font-mono text-slate-100 bg-gradient-to-tr from-slate-600 to-slate-900 pt-12">
 
 
-      <Menu/>
+      <span className="text-center"><Menu/></span>
 
 
     <div className="font-mono text-gray-600 overflow-hidden p-5">
