@@ -9,10 +9,12 @@ import Scheduel from './components/schedule/page';
 
 
 
+
 const Page = () => {
   return (
     <div className="font-mono text-gray-100 overflow-hidden">
-      <Menu/>
+
+        <Menu/>
 
       <div className="bg-[url('../public/main.jpg')] bg-cover bg-center h-32 flex justify-center items-center py-64">
         <button

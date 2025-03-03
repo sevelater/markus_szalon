@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import Link from 'next/link';
 
 function Menu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,7 +69,7 @@ function Menu() {
         </a>
 
       </motion.div>
-      <div className="fixed flex z-30 top-8 right-6">
+      <div className="fixed flex z-50 top-8 right-6">
         <button
           ref={buttonRef}
           onClick={() => setIsOpen(!isOpen)}
@@ -99,14 +98,19 @@ function Menu() {
         <div className="fixed inset-0 bg-transparent z-20">
           <div
             ref={menuRef}
-            className="fixed top-0 right-0 h-full w-72 bg-slate-900 border-l backdrop-blur-md bg-opacity-30 flex items-center justify-center text-center"
+            className="fixed top-0 right-0 h-full w-64 md:w-72 lg:w-80 bg-slate-900 border-l backdrop-blur-md bg-opacity-30 flex items-center justify-center text-center"
           >
             <ul className="grid text-slate-100 text-xl w-2/4 text-center">
               <a onClick={() => setIsOpen(!isOpen)} className="my-10 hover:text-white hover:bg-opacity-30 w-full p-1 cursor-pointer h-0 text-center" href="../">Főoldal</a>
               <a onClick={() => setIsOpen(!isOpen)} className="my-10 hover:text-white cursor-pointer w-full h-0" href="#service">Szolgáltatások</a>
               <a onClick={() => setIsOpen(!isOpen)} className="my-10 hover:text-white cursor-pointer w-full h-0" href="#portfolio">Portfólióm</a>
-              <Link href="../components/gallery" onClick={() => setIsOpen(!isOpen)} className="my-10 hover:text-white cursor-pointer w-full h-0" >Referencia</Link>
-              <a onClick={() => setIsOpen(!isOpen)} className="my-10 hover:text-white cursor-pointer w-full h-0" href="#get-in-touch">Elérhetőségek</a>
+              <a 
+              onClick={() => {
+              window.open("https://www.facebook.com/profile.php?id=61568795877252&sk=photos") 
+              setIsOpen(!isOpen)}}
+
+              className="my-10 hover:text-white cursor-pointer w-full h-0" >Referencia</a>
+              <a onClick={() => setIsOpen(!isOpen)} className="my-10  mb-48 hover:text-white cursor-pointer w-full h-0" href="#get-in-touch">Elérhetőségek</a>
             </ul>
           </div>
         </div>

@@ -18,16 +18,23 @@ const Page = () => {
 
           <div className="pb-5 px-5 pt-5 h-auto bg-slate-800 rounded-md md:rounded-lg lg:rounded-lg font-sans">
 
-          <p className="mb-3">Ha bármilyen kérdése vagy kérése van, örömmel állok rendelkezésére!</p> 
+          {/* <p className="mb-3">Ha bármilyen kérdése vagy kérése van, örömmel állok rendelkezésére!</p> 
           <p className="mb-3">Kérek mindenkit hogy a  <span className="text-red-300">festés időpont egyeztetés során</span> telefonon beszéljük át</p> 
           <p>a haj <span className="text-red-300">előtörténetét</span>, hogy tudjam milyen <span className="text-red-300">időben</span> milyen <span className="text-red-300">munka</span> folyamatra készüljek.</p> 
 
-          <br></br>
+          <br></br> */}
+         
+          <svg>
+
+            
+
+          </svg>
+
           <h3 className="text-indigo-400">Telefon</h3>
-          <p>+36 70 598 5439</p>
+          <a href="tel:+36 70 598 5439">+36 70 598 5439</a>
           <br></br>
           <h3 className="text-indigo-400">Email</h3>
-          <p>gabika20040218@gmail.com</p>
+          <a href="mailto:gabika20040218@gmail.com">gabika20040218@gmail.com</a>
 
           </div>
 
