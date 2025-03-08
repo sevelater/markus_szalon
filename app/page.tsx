@@ -12,7 +12,7 @@ import Scheduel from './components/schedule/page';
 
 const Page = () => {
   return (
-    <div className="font-mono text-gray-100 overflow-hidden">
+    <div className="font-mono text-gray-100 overflow-hidden from-slate-600 to-slate-900 bg-gradient-to-tr">
 
         <Menu/>
 
