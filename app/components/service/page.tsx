@@ -65,9 +65,11 @@ const Service = () => {
   return (
     <div className="grid p-4 sm:p-6 h-auto w-full max-w-4xl mx-auto" id="services">
       {/* Főcím */}
+
       <h1 className="text-2xl sm:text-3xl justify-self-center my-8 sm:my-12">Szolgáltatások</h1>
 
       {/* Kategóriaváltó gombok */}
+      
       <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
         <button
           onClick={() => {
@@ -110,17 +112,7 @@ const Service = () => {
       {/* Hosszúság szűrők a Női kategóriához */}
       {selectedCategory === "no" && (
         <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
-          <button
-            onClick={() => {
-              setSelectedLength(null);
-              setShowAll(false);
-            }}
-            className={`px-3 py-1 sm:px-4 sm:py-2 rounded-lg border border-slate-500 transition-transform duration-200 ease-in-out text-sm sm:text-base ${
-              selectedLength === null && !showAll ? "bg-slate-700 text-white" : "bg-slate-400"
-            } hover:bg-slate-600 active:scale-95 active:bg-slate-800`}
-          >
-            Mind
-          </button>
+          
           <button
             onClick={() => {
               setSelectedLength("rovid");
