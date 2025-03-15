@@ -12,7 +12,7 @@ const Page = () => {
          
             <div 
             className="flex gap-12 mx-1 py-5 px-9  justify-center w-full" 
-            id="get-in-touch"
+            id="elerhetosegek"
             >
 
             <div className="text-gray-200 pt-5 pb-5">

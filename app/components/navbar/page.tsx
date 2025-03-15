@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { links } from '../../consts';
+import { links } from '../consts';
 
 function Menu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -101,7 +101,7 @@ function Menu() {
             ref={menuRef}
             className="fixed top-0 right-0 h-full w-64 md:w-72 lg:w-80 bg-slate-900 border-l backdrop-blur-md bg-opacity-30 flex items-center justify-center"
           >
-            <ul className="grid text-slate-100 text-xl w-full text-center gap-y-8 justify-items-center">
+            <ul className="grid text-slate-100 text-md md:text-lg lg:text-xl w-full text-center gap-y-8 justify-items-center">
               {links.map((link) =>
                 link.external ? (
                   <li key={link.href}>

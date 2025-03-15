@@ -3,7 +3,7 @@
 import Menu from './components/navbar/page';
 import Service from './components/service/page';
 import Portfolio from './components/portfolio/page';
-import Footer from './components/connect-us/page';
+
 import Scheduel from './components/schedule/page';
 
 
@@ -38,9 +38,7 @@ const Page = () => {
       <Scheduel/>
       </div>
 
-      <div className="py-0.5 bg-[#302118]" id="line"></div>
-
-      <Footer/>  
+      <div className="py-0.5 bg-[#302118]" id="line"></div>  
 
     </div>
   );

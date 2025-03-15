@@ -69,12 +69,12 @@ const Service = () => {
 
   const serviceVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.4, ease: "easeOut" } },
+    visible: { opacity: 1, transition: { duration: 0.3, ease: "easeOut" } },
   };
 
   return (
     <div className="bg-gradient-to-t from-[#ad9451] to-[#54402f]">
-      <div className="grid p-4 sm:p-6 h-auto w-full max-w-4xl mx-auto" id="services">
+      <div className="grid p-4 sm:p-6 h-auto w-full max-w-4xl mx-auto" id="szolgaltatasok">
         <h1 className="text-2xl sm:text-3xl justify-self-center my-8 sm:my-12 text-white">Szolgáltatások</h1>
 
         <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
@@ -141,7 +141,7 @@ const Service = () => {
           </div>
         )}
 
-        {/* Szolgáltatások listája */}
+
         <div className="space-y-6">
           {allServices.map(({ length, services }, groupIndex) => (
             <div key={groupIndex}>
