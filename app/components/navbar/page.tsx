@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { links } from '../../consts';
 
 function Menu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -95,22 +96,37 @@ function Menu() {
 
       
       {isOpen && (
-        <div className="fixed inset-0 bg-transparent z-20">
+        <div className="fixed inset-0 bg-transparent z-40">
           <div
             ref={menuRef}
-            className="fixed top-0 right-0 h-full w-64 md:w-72 lg:w-80 bg-slate-900 border-l backdrop-blur-md bg-opacity-30 flex items-center justify-center text-center"
+            className="fixed top-0 right-0 h-full w-64 md:w-72 lg:w-80 bg-slate-900 border-l backdrop-blur-md bg-opacity-30 flex items-center justify-center"
           >
-            <ul className="grid text-slate-100 text-xl w-2/4 text-center">
-              <a onClick={() => setIsOpen(!isOpen)} className="my-10 hover:text-white hover:bg-opacity-30 w-full p-1 cursor-pointer h-0 text-center" href="../">Főoldal</a>
-              <a onClick={() => setIsOpen(!isOpen)} className="my-10 hover:text-white cursor-pointer w-full h-0" href="#service">Szolgáltatások</a>
-              <a onClick={() => setIsOpen(!isOpen)} className="my-10 hover:text-white cursor-pointer w-full h-0" href="#portfolio">Portfólióm</a>
-              <a 
-              onClick={() => {
-              window.open("https://www.facebook.com/profile.php?id=61568795877252&sk=photos") 
-              setIsOpen(!isOpen)}}
-
-              className="my-10 hover:text-white cursor-pointer w-full h-0" >Referencia</a>
-              <a onClick={() => setIsOpen(!isOpen)} className="my-10  mb-48 hover:text-white cursor-pointer w-full h-0" href="#get-in-touch">Elérhetőségek</a>
+            <ul className="grid text-slate-100 text-xl w-full text-center gap-y-8 justify-items-center">
+              {links.map((link) =>
+                link.external ? (
+                  <li key={link.href}>
+                    <button
+                      className="block p-2 hover:text-[#c5b87f] transition-colors w-auto"
+                      onClick={() => {
+                        window.open(link.href, "_blank");
+                        setIsOpen(false);
+                      }}
+                    >
+                      {link.text}
+                    </button>
+                  </li>
+                ) : (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="block p-2 hover:text-[#c5b87f] transition-colors w-auto"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.text}
+                    </a>
+                  </li>
+                )
+              )}
             </ul>
           </div>
         </div>

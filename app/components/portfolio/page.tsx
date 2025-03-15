@@ -6,16 +6,16 @@ import Image from 'next/image';
 const Page = () => {
     return (
         <>
-            <div className="grid from-slate-400 to-slate-600 bg-gradient-to-br w-auto pt-12 p-5 pb-12 sm:grid-cols-2 scroll-mt-28" id="portfolio">
+            <div className="grid backdrop-blue-lg bg-white bg-opacity-20 w-auto pt-12 p-5 pb-12 sm:grid-cols-2 scroll-mt-28" id="portfolio">
                 <Image 
             alt="profile pic"
             src="/profile.png"
             width={150}
             height={150}
-            className=" justify-self-center justify-items-center pb-9 lg:w-52"
+            className="opacity-50 justify-self-center justify-items-center pb-9 lg:w-52"
             />
 
-            <p className="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias ipsam temporibus commodi fugiat voluptatum illum similique. Ea harum et nobis, facilis nam unde enim voluptas, officia facere adipisci incidunt amet.</p>
+            <p className="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat provident sit at expedita dolorem corrupti quis accusantium dicta qui, neque, fuga vitae laudantium quaerat exercitationem obcaecati, dolores eligendi veniam dignissimos temporibus deserunt eius! Vitae aspernatur repellendus doloribus, ipsam incidunt reprehenderit repellat dolor excepturi necessitatibus id tempora dignissimos. Quis, corporis quo?</p>
             </div>
         </>
     )
