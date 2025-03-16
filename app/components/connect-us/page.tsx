@@ -8,7 +8,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 const Page = () => {
   return (
     <div className="object-bottom h-full">
-      <div className="pb-16 md:pb-20 lg:pb-24 grid lg:justify-evenly h-auto bg-gradient-to-t from-[#ad9451] to-[#54402f] sm:grid md:flex lg:flex p-3 gap-y-8 lg:gap-x-12 md:gap-x-12 lg:pt-12 md:pt-10 md:justify-evenly">
+      <div className="pb-5 md:pb-20 lg:pb-24 grid lg:justify-evenly h-auto bg-gradient-to-t from-[#ad9451] to-[#54402f] sm:grid md:flex lg:flex p-3 gap-y-8 lg:gap-x-12 md:gap-x-12 lg:pt-12 md:pt-10 md:justify-evenly">
       <div className="h-72 sm:h-80 md:h-[250px] lg:h-[300px] w-full md:max-w-[500px] lg:max-w-[800px] rounded-md sm:w-full md:w-2/3 lg:w-6/12">
         <a
     href="https://www.google.com/maps/place/M%C3%A1rkus+Szalon/@47.5091897,18.9292472,17z"
@@ -22,12 +22,12 @@ const Page = () => {
       allowFullScreen
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
-      className="w-full h-full rounded-md pointer-events-none" // Disable iframe interactions
+      className="w-full h-full rounded-md pointer-events-none mt-2" // Disable iframe interactions
         ></iframe>
         </a>
       </div>
 
-        {/* Vertical Divider - Corrected height to match sections */}
+
         <div className="hidden md:block md:w-px md:h-[240px] lg:h-[280px] bg-gray-300 mx-4 self-center"></div>
 
         <div className="h-auto md:h-[250px] lg:h-[300px] flex flex-col">

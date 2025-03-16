@@ -74,7 +74,7 @@ const Service = () => {
 
   return (
     <div className="bg-gradient-to-t from-[#ad9451] to-[#54402f]">
-      <div className="grid p-4 sm:p-6 h-auto w-full max-w-4xl mx-auto" id="szolgaltatasok">
+      <div className="grid p-4 sm:p-6 h-auto w-full max-w-4xl mx-auto scroll-mt-20" id="szolgaltatasok">
         <h1 className="text-2xl sm:text-3xl justify-self-center my-8 sm:my-12 text-white">Szolgáltatások</h1>
 
         <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
