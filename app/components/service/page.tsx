@@ -39,7 +39,6 @@ const Service = () => {
       { name: "Férfi hajvágás mosás nélkül", price: 3500, time: "30 perc" },
       { name: "Gépi átmenet", price: 3000, time: "20 perc" },
       { name: "Vasalás/Göndörítés/Trimelés", price: 1000, time: "15-30 perc" },
-      { name: "Seggszőr vágás", price: 1500, time: "69 perc"},
     ],
     gyerek: [
       { name: "Fiú hajvágás 10 éves korig", price: 3600, time: "30 perc" },
