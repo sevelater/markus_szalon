@@ -111,7 +111,7 @@ function Menu() {
           variants={hamburgerVariants}
           initial="visible"
           animate={hidden ? "hidden" : "visible"}
-          className="custom:hidden fixed top-8 right-6 z-50"
+          className="custom:hidden fixed top-6 right-3 z-50 p-2"
         >
           <button
             ref={buttonRef}
