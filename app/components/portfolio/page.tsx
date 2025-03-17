@@ -1,69 +1,48 @@
 "use client";
 
 const Page = () => {
-    return (
-        <>
-            <div className="scroll-mt-28" id="portfolio">
-                <div className="bg-opacity-40 mx-auto p-4 sm:p-6">
-                    {/* Címsor */}
-                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center py-4 sm:py-6">Portfólióm</h2>
+  return (
+    <div className="bg-gradient-to-t to-[#ad9451] from-[#54402f] scroll-mt-28" id="portfolio">
+      <div className="mx-auto pb-8 max-w-5xl">
 
-                    {/* Kép és szöveg konténer */}
-                    <div className="flex flex-col md:flex-col lg:flex-row items-center p-2 sm:p-6 justify-center">
-                        <div className="w-[200px] sm:w-[280px] lg:w-[360px] h-[200px] sm:h-[280px] lg:h-[360px] mb-6 lg:mb-0 lg:mr-10">
-                            <img 
-                                src="/portfolio.png" 
-                                alt="Saját magam" 
-                                className="w-full h-full object-cover object-center rounded-full shadow-lg border-4 border-white"
-                            />
-                        </div>
-                        <p className="h-auto text-xs sm:text-sm lg:text-base max-w-lg text-center lg:text-left bg-[#c9ba7b] bg-opacity-30 rounded-md p-4 sm:p-6 sm:h-[300px] lg:h-[360px] flex flex-col justify-center">
-                            A haj nem csak munka, hanem szenvedély: 
-                            <br /><br />
-                            <strong>A 2024-es WAMP divatbemutatón</strong> egyedi frizurákkal hoztam harmóniát ruhákhoz és ékszerekhez
-                            <div className="p-2" />
-                            Versenyeken is bizonyítottam:<strong className="pt-2">első hely</strong> férfi modern szárításban, <strong className="pt-2">dobogós helyezések</strong> a Magyar Online Bajnokságon. 
-                            <div className="p-2" />
-                            Minden ollócsattintás egy újabb történet!
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center py-3 sm:py-8 md:py-10 text-white">
+          Portfólióm
+        </h2>
+
+
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-10 p-2 sm:p-4 md:p-6">
+
+          <div className="w-[200px] sm:w-[280px] lg:w-[360px] h-[200px] sm:h-[280px] lg:h-[360px] flex-shrink-0">
+            <img
+              src="/portfolio.png"
+              alt="Saját magam"
+              className="w-full h-full object-cover object-center rounded-full shadow-lg border-4 border-[#c1b883]"
+            />
+          </div>
+
+
+          <div className="max-w-lg w-full bg-[#8d7341] bg-opacity-30 rounded-lg p-4 text-white flex flex-col justify-center h-auto">
+            <p className="text-sm sm:text-base md:text-lg text-center lg:text-left leading-relaxed">
+              A haj nem csak munka, hanem szenvedély:
+              <br />
+              <br />
+              <strong className="font-semibold">A 2024-es WAMP divatbemutatón</strong> egyedi frizurákkal hoztam harmóniát
+              ruhákhoz és ékszerekhez.
+              <br />
+              <br />
+              Versenyeken is bizonyítottam: 
+              <br />
+              <strong className="font-semibold">első hely</strong> férfi modern szárításban,
+              <strong className="font-semibold"> dobogós helyezések</strong> a Magyar Bajnokságon.
+              <br />
+              <br />
+              Minden ollócsattintás egy újabb történet!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Page;
-
-// const Alma = () => {
-//     return (
-//         <>
-//             <div className="scroll-mt-28 p-4" id="portfolio">
-//                 <div className="bg-opacity-40 mx-auto max-w-5xl border rounded-md border-opacity-10 p-4 sm:p-6 lg:p-8">
-//                     {/* Címsor */}
-//                     <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center py-4 sm:py-6">Portfólióm</h2>
-
-//                     {/* Kép és szöveg konténer */}
-//                     <div className="flex flex-col md:flex-col lg:flex-row items-center justify-center p-2 sm:p-6 min-h-[200px] sm:min-h-[280px] lg:min-h-0">
-//                         <div className="w-[200px] sm:w-[280px] lg:w-[360px] h-[200px] sm:h-[280px] lg:h-[360px] mb-6 lg:mb-0 lg:mr-10">
-//                             <img 
-//                                 src="/portfolio.png" 
-//                                 alt="Saját magam" 
-//                                 className="w-full h-full object-cover object-center rounded-full shadow-lg border-4 border-white"
-//                             />
-//                         </div>
-//                         <p className="text-xs sm:text-sm lg:text-base max-w-lg text-center lg:text-left bg-[#c9ba7b] bg-opacity-30 rounded-md p-4 sm:p-6 h-[200px] sm:h-[280px] lg:h-[360px] flex flex-col justify-center">
-//                             A haj nem csak munka, hanem szenvedély: a <strong>2024-es WAMP divatbemutatón</strong> egyedi frizurákkal hoztam harmóniát ruhákhoz és ékszerekhez. 
-//                             <div className="p-2" />
-//                             Versenyeken is bizonyítottam – <strong>első hely</strong> férfi modern szárításban, <strong>dobogós helyezések</strong> a Magyar Online Bajnokságon. 
-//                             <div className="p-2" />
-//                             Minden ollócsattintás egy újabb történet!
-//                         </p>
-//                     </div>
-//                 </div>
-//             </div>
-//         </>
-//     );
-// };
-
-// export default Alma;

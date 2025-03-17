@@ -8,10 +8,10 @@ const Page = () => {
                       lg:bg-[url('../public/calendar.jpg')] 
                       md:bg-[url('../public/desktop.jpg')]" id="schedule__1">
 
-            <div className="w-full bg-black bg-opacity-55">
+            <div className="w-full bg-black bg-opacity-50">
          
             <div 
-            className="flex gap-12 mx-1 py-5 px-9  justify-center w-full scroll-mt-20" 
+            className="flex gap-12 mx-1 py-5 px-9 justify-center w-full scroll-mt-20" 
             id="elerhetosegek"
             >
 

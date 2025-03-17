@@ -48,20 +48,24 @@ const Service = () => {
     ],
   };
 
-  const allServices =
-    selectedCategory === "no"
-      ? [{ length: selectedLength, services: servicesData.no[selectedLength] }]
-      : selectedCategory === "ferfi"
-      ? [{ length: "Férfi", services: servicesData.ferfi }]
-      : [{ length: "Gyerek", services: servicesData.gyerek }];
+  type ServiceItem = {
+    label: string;
+    services: { name: string; price: number; time: string }[];
+  };
 
-  // Animation variants for the container and service items
+  const allServices: ServiceItem[] =
+    selectedCategory === "no"
+      ? [{ label: selectedLength, services: servicesData.no[selectedLength] }]
+      : selectedCategory === "ferfi"
+      ? [{ label: "Férfi hajvágás", services: servicesData.ferfi }]
+      : [{ label: "Gyermek hajvágás", services: servicesData.gyerek }];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1, // 0.1s delay between each child
+        staggerChildren: 0.1,
       },
     },
     exit: { opacity: 0, transition: { duration: 0.2 } },
@@ -73,19 +77,22 @@ const Service = () => {
   };
 
   return (
-    <div className="bg-gradient-to-t from-[#ad9451] to-[#54402f]">
-      <div className="grid p-4 sm:p-6 h-auto w-full max-w-4xl mx-auto scroll-mt-20" id="szolgaltatasok">
+    <div className="bg-gradient-to-t from-[#9f8e53] to-[#54402f] pb-4 sm:pb-5 md:pb-8">
+      <div className="grid p-4 sm:p-6 h-auto w-full max-w-5xl mx-auto scroll-mt-20" id="szolgaltatasok">
         <h1 className="text-2xl sm:text-3xl justify-self-center my-8 sm:my-12 text-white">Szolgáltatások</h1>
 
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
+        {/* Felső gombok */}
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-8">
           <button
             onClick={() => {
               setSelectedCategory("no");
               setSelectedLength("rovid");
             }}
-            className={`p-2 px-6 sm:p-3 sm:px-8 rounded-xl transition-transform duration-200 ease-in-out text-sm sm:text-base ${
-              selectedCategory === "no" ? "bg-[#8d7341] text-white" : "bg-[#b49f5b]"
-            } hover:bg-[#8d7341] hover:bg-opacity-60 active:scale-95`}
+            className={`relative px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base md:text-lg font-semibold text-white border border-[#8d7341] rounded-md transition-all duration-300 ease-in-out ${
+              selectedCategory === "no"
+                ? "bg-[#8d7341] bg-opacity-30"
+                : "bg-transparent hover:bg-[#8d7341] hover:bg-opacity-20"
+            }`}
           >
             Női
           </button>
@@ -93,9 +100,11 @@ const Service = () => {
             onClick={() => {
               setSelectedCategory("ferfi");
             }}
-            className={`p-2 px-6 sm:p-3 sm:px-8 rounded-xl transition-transform duration-200 ease-in-out text-sm sm:text-base ${
-              selectedCategory === "ferfi" ? "bg-[#8d7341] text-white" : "bg-[#b49f5b]"
-            } hover:bg-[#8d7341] hover:bg-opacity-60 active:scale-95`}
+            className={`relative px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base md:text-lg font-semibold text-white border border-[#8d7341] rounded-md transition-all duration-300 ease-in-out ${
+              selectedCategory === "ferfi"
+                ? "bg-[#8d7341] bg-opacity-30"
+                : "bg-transparent hover:bg-[#8d7341] hover:bg-opacity-20"
+            }`}
           >
             Férfi
           </button>
@@ -103,51 +112,66 @@ const Service = () => {
             onClick={() => {
               setSelectedCategory("gyerek");
             }}
-            className={`p-2 px-6 sm:p-3 sm:px-8 rounded-xl transition-transform duration-200 ease-in-out text-sm sm:text-base ${
-              selectedCategory === "gyerek" ? "bg-[#8d7341] text-white" : "bg-[#b49f5b]"
-            } hover:bg-[#8d7341] hover:bg-opacity-60 active:scale-95`}
+            className={`relative px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base md:text-lg font-semibold text-white border border-[#8d7341] rounded-md transition-all duration-300 ease-in-out ${
+              selectedCategory === "gyerek"
+                ? "bg-[#8d7341] bg-opacity-30"
+                : "bg-transparent hover:bg-[#8d7341] hover:bg-opacity-20"
+            }`}
           >
             Gyerek
           </button>
         </div>
 
-        {/* Hosszúság szűrők a Női kategóriához */}
-        {selectedCategory === "no" && (
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
-            <button
-              onClick={() => setSelectedLength("rovid")}
-              className={`p-2 px-6 sm:p-3 sm:px-8 rounded-xl transition-transform duration-200 ease-in-out text-sm sm:text-base ${
-                selectedLength === "rovid" ? "bg-[#8d7341] text-white" : "bg-[#b49f5b]"
-              } hover:bg-[#8d7341] hover:bg-opacity-60 active:scale-95`}
-            >
-              Rövid
-            </button>
-            <button
-              onClick={() => setSelectedLength("felhoszu")}
-              className={`p-2 px-6 sm:p-3 sm:px-8 rounded-xl transition-transform duration-200 ease-in-out text-sm sm:text-base ${
-                selectedLength === "felhoszu" ? "bg-[#8d7341] text-white" : "bg-[#b49f5b]"
-              } hover:bg-[#8d7341] hover:bg-opacity-60 active:scale-95`}
-            >
-              Félhosszú
-            </button>
-            <button
-              onClick={() => setSelectedLength("hosszu")}
-              className={`p-2 px-6 sm:p-3 sm:px-8 rounded-xl transition-transform duration-200 ease-in-out text-sm sm:text-base ${
-                selectedLength === "hosszu" ? "bg-[#8d7341] text-white" : "bg-[#b49f5b]"
-              } hover:bg-[#8d7341] hover:bg-opacity-60 active:scale-95`}
-            >
-              Hosszú
-            </button>
-          </div>
-        )}
-
-
-        <div className="space-y-6">
-          {allServices.map(({ length, services }, groupIndex) => (
+        <div className="space-y-6 sm:space-y-8">
+          {allServices.map(({ label, services }, groupIndex) => (
             <div key={groupIndex}>
-              <h2 className="text-lg sm:text-xl font-semibold mb-4 text-white">
-                {length === "rovid" ? "Rövid haj" : length === "felhoszu" ? "Félhosszú haj" : length === "hosszu" ? "Hosszú haj" : length}
-              </h2>
+              {/* Kategóriaválasztó gombok vagy címke */}
+              <div className="mb-6 sm:mb-8">
+                {selectedCategory === "no" ? (
+                  <div className="flex justify-center gap-4 sm:gap-8 md:gap-10">
+                    <button
+                      onClick={() => setSelectedLength("rovid")}
+                      className={`relative px-4 py-2 text-base sm:text-lg md:text-xl font-medium text-white transition-all duration-200 ease-in-out ${
+                        selectedLength === "rovid"
+                          ? "after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#8d7341]"
+                          : "opacity-70 hover:opacity-100"
+                      }`}
+                    >
+                      Rövid
+                    </button>
+                    <button
+                      onClick={() => setSelectedLength("felhoszu")}
+                      className={`relative px-4 py-2 text-base sm:text-lg md:text-xl font-medium text-white transition-all duration-200 ease-in-out ${
+                        selectedLength === "felhoszu"
+                          ? "after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#8d7341]"
+                          : "opacity-70 hover:opacity-100"
+                      }`}
+                    >
+                      Félhosszú
+                    </button>
+                    <button
+                      onClick={() => setSelectedLength("hosszu")}
+                      className={`relative px-4 py-2 text-base sm:text-lg md:text-xl font-medium text-white transition-all duration-200 ease-in-out ${
+                        selectedLength === "hosszu"
+                          ? "after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#8d7341]"
+                          : "opacity-70 hover:opacity-100"
+                      }`}
+                    >
+                      Hosszú
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex justify-center">
+                    <span
+                      className={`relative px-4 py-2 text-base sm:text-lg md:text-xl font-medium text-white after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#8d7341]`}
+                    >
+                      {label}
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* Szolgáltatások listája */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`${selectedCategory}-${selectedLength}`}
@@ -165,10 +189,12 @@ const Service = () => {
                       onClick={() => window.open("https://markusszalon.salonic.hu/services", "_blank")}
                     >
                       <div className="flex-1">
-                        <p className="text-base sm:text-lg font-medium">{service.name}</p>
+                        <p className="text-sm sm:text-base md:text-lg font-medium">{service.name}</p>
                         <p className="text-xs sm:text-sm opacity-80">{service.time}</p>
                       </div>
-                      <p className="text-base sm:text-lg font-medium text-right w-24 sm:w-28 text-nowrap">{service.price} Ft</p>
+                      <p className="text-sm sm:text-base md:text-lg font-medium text-right w-20 sm:w-24 md:w-28 text-nowrap">
+                        {service.price} Ft
+                      </p>
                     </motion.div>
                   ))}
                 </motion.div>

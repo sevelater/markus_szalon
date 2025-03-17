@@ -22,7 +22,7 @@ const Page = () => {
       allowFullScreen
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
-      className="w-full h-full rounded-md pointer-events-none mt-2" // Disable iframe interactions
+      className="w-full h-full rounded-md pointer-events-none mt-2"
         ></iframe>
         </a>
       </div>
@@ -32,20 +32,21 @@ const Page = () => {
 
         <div className="h-auto md:h-[250px] lg:h-[300px] flex flex-col">
           <h1 className="mb-4 ml-4 text-2xl font-semibold text-white">Kapcsolat</h1>
-          <div className="gap-y-2.5 pb-5 px-5 pt-5 md:pb-8 md:pt-8 lg:py-10 rounded-md md:rounded-lg lg:rounded-lg font-sans border border-gray-300 bg-white bg-opacity-10 text-white flex-1 flex flex-col justify-between md:gap-y-6 lg:gap-y-4">
+          <div className="gap-y-3 pb-5 px-5 pt-5 md:pb-8 md:pt-8 lg:py-10 rounded-md md:rounded-lg lg:rounded-lg font-sans border border-gray-300 bg-white bg-opacity-10 text-white flex-1 flex flex-col justify-between md:gap-y-6 lg:gap-y-4">
             
             <div className="flex items-center">
-              <FontAwesomeIcon icon={faPhone} size="lg" className="text-gray-200" />
+              <FontAwesomeIcon icon={faPhone} size="lg" className="text-gray-200 w-auto" />
               <a href="tel:+36 70 598 5439" className="ml-3 hover:text-gray-300 transition-colors">+36 70 598 5439</a>
             </div>
 
             <div className="flex items-center">
-              <FontAwesomeIcon icon={faEnvelope} size="lg" className="text-gray-200" />
+              <FontAwesomeIcon icon={faEnvelope} size="lg" className="text-gray-200 w-auto" />
               <a href="mailto:gabika20040218@gmail.com" className="ml-3 hover:text-gray-300 transition-colors">gabika20040218@gmail.com</a>
             </div>
 
+            <div className="w-auto">
             <button
-              className="flex items-center hover:text-gray-300 transition-colors"
+              className="flex items-center hover:text-gray-300 transition-colors w-auto"
               onClick={() => {
                 window.open("https://www.facebook.com/profile.php?id=61568795877252&sk=photos");
               }}
@@ -53,6 +54,7 @@ const Page = () => {
               <FontAwesomeIcon icon={faFacebook} size="lg" className="text-gray-200" />
               <span className="ml-3">Márkus Szalon</span>
             </button>
+            </div>
 
           </div>
         </div>
