@@ -21,7 +21,7 @@ const Page = () => {
           </div>
 
 
-          <div className="max-w-lg w-full bg-[#8d7341] bg-opacity-30 rounded-lg p-4 text-white flex flex-col justify-center h-auto">
+          <div className="max-w-lg w-full bg-[#8d7341] bg-opacity-30 rounded-lg p-4 text-white flex flex-col justify-center h-auto border border-[#c7a56533]">
             <p className="text-sm sm:text-base md:text-lg text-center lg:text-left leading-relaxed">
               A haj nem csak munka, hanem szenvedély:
               <br />
@@ -36,7 +36,7 @@ const Page = () => {
               <strong className="font-semibold"> dobogós helyezések</strong> a Magyar Bajnokságon.
               <br />
               <br />
-              Minden ollócsattintás egy újabb történet!
+             
             </p>
           </div>
         </div>
