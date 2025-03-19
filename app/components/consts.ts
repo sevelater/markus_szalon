@@ -1,5 +1,4 @@
 export const links = [
-  { href: "/", text: "Főoldal" },
   { href: "#szolgaltatasok", text: "Szolgáltatások" },
   { href: "#portfolio", text: "Portfólióm" },
   // { href: "/components/hajgyogyaszat", text: "Hajgyógyászat" },

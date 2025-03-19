@@ -66,13 +66,11 @@ function Navbar() {
         <div className="hidden custom:flex justify-center items-center px-6 xl:px-12 py-4 w-full rounded-md backdrop-blur-md">
           <ul className="flex gap-4 xl:gap-6 items-center">
             <li className="group">
-              <a href="../" className="flex items-center">
                 <motion.img
                   src="/logo.png"
                   alt="logó"
-                  className="h-10 w-10 xl:h-12 xl:w-12 object-contain shadow-md rounded-full border-2 border-[#c5b87f]"
+                  className="h-16 w-16 object-contain shadow-md rounded-full border-2 border-[#c5b87f] mr-12"
                 />
-              </a>
             </li>
             {links.map((link) => (
               <li key={link.href} className="relative group">
