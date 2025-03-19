@@ -3,12 +3,12 @@
 const Page = () => {
     return (
         <>
-            <div className="bg-[url('../public/background.png')] bg-cover bg-center
+            <div className="bg-[url('/background.png')] bg-cover bg-center
                       h-auto justify-items-center text-center w-full 
                       lg:bg-[url('../public/calendar.jpg')] 
                       md:bg-[url('../public/desktop.jpg')]" id="schedule__1">
 
-            <div className="w-full bg-black bg-opacity-50 md:py-10">
+            <div className="w-full bg-black bg-opacity-50 md:py-5">
          
             <div 
             className="flex gap-12 mx-1 py-5 px-9 justify-center w-full scroll-mt-20" 
