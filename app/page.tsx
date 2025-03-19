@@ -10,7 +10,7 @@ const Page = () => {
     <div className="bg-main font-main text-gray-100 overflow-hidden bg-[#c9ba7b] bg-opacity-70 to-[#8d7341] bg-gradient-to-t">
       <Menu />
 
-      <div className="bg-[url('../public/main.jpg')] bg-fixed bg-cover bg-center flex flex-col justify-center items-center py-56 lg:py-60 text-center">
+      <div className="bg-[url('../public/main.jpg')] bg-cover bg-center flex flex-col justify-center items-center py-56 lg:py-60 text-center">
   
         {/* Centered Márkus Szalon paragraph */}
         <p className="text-white custom:max-w-2xl text-[38px] sm:text-[45px] md:text-[65px] font-medium font-main w-full custom:text-[80px]">

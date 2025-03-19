@@ -65,15 +65,15 @@ const Service = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.08, // Changed from 0.1 to 0.05
       },
     },
-    exit: { opacity: 0, transition: { duration: 0.2 } },
+    exit: { opacity: 0, transition: { duration: 0.2 } }, // Changed from 0.2 to 0.1
   };
 
   const serviceVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.3, ease: "easeOut" } },
+    visible: { opacity: 1, transition: { duration: 0.15, ease: "easeOut" } }, // Changed from 0.3 to 0.15
   };
 
   return (

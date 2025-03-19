@@ -3,7 +3,7 @@
 const Page = () => {
     return (
         <>
-            <div className="bg-[url('../public/background.png')] bg-cover bg-center md:bg-fixed
+            <div className="bg-[url('../public/background.png')] bg-cover bg-center
                       h-auto justify-items-center text-center w-full 
                       lg:bg-[url('../public/calendar.jpg')] 
                       md:bg-[url('../public/desktop.jpg')]" id="schedule__1">
