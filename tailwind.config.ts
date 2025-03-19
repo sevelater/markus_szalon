@@ -15,6 +15,9 @@ export default {
       screens: {
         'custom': '1430px',
       },
+      fontFamily: {
+        main: ['Quicksand']
+      }
     },
   },
   plugins: [],

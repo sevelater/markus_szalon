@@ -3,12 +3,12 @@
 const Page = () => {
     return (
         <>
-            <div className="bg-[url('../public/background.png')] bg-cover bg-center
+            <div className="bg-[url('../public/background.png')] bg-cover bg-center md:bg-fixed
                       h-auto justify-items-center text-center w-full 
                       lg:bg-[url('../public/calendar.jpg')] 
                       md:bg-[url('../public/desktop.jpg')]" id="schedule__1">
 
-            <div className="w-full bg-black bg-opacity-50">
+            <div className="w-full bg-black bg-opacity-50 md:py-10">
          
             <div 
             className="flex gap-12 mx-1 py-5 px-9 justify-center w-full scroll-mt-20" 
@@ -16,25 +16,25 @@ const Page = () => {
             >
 
             <div className="text-gray-200 pt-5 pb-5">
-                <h3 className="mb-1 text-sm sm:text-md lg:text-lg">Hétfő</h3>
-                <h3 className="mb-1 text-sm sm:text-md lg:text-lg">Kedd</h3>
-                <h3 className="mb-1 text-sm sm:text-md lg:text-lg">Szerda</h3>
-                <h3 className="mb-1 text-sm sm:text-md lg:text-lg">Csütörtök</h3>
-                <h3 className="mb-1 text-sm sm:text-md lg:text-lg">Péntek</h3>
-                <h3 className="mb-1 text-sm sm:text-md lg:text-lg">Szombat</h3>
-                <h3 className="mb-1 text-sm sm:text-md lg:text-lg">Vasárnap</h3>
+                <h3 className="mb-1 text-sm sm:text-lg lg:text-lg font-light">Hétfő</h3>
+                <h3 className="mb-1 text-sm sm:text-lg lg:text-lg font-light">Kedd</h3>
+                <h3 className="mb-1 text-sm sm:text-lg lg:text-lg font-light">Szerda</h3>
+                <h3 className="mb-1 text-sm sm:text-lg lg:text-lg font-light">Csütörtök</h3>
+                <h3 className="mb-1 text-sm sm:text-lg lg:text-lg font-light">Péntek</h3>
+                <h3 className="mb-1 text-sm sm:text-lg lg:text-lg font-light">Szombat</h3>
+                <h3 className="mb-1 text-sm sm:text-lg lg:text-lg font-light">Vasárnap</h3>
             </div>
 
             <div className="bg-slate-50 h-auto w-px pt-5 pb-5 my-2 lg:my-3 md:my-2.5"></div>
 
             <div className="text-gray-200 pt-5 pb-5 justify-items-center">
-                <h4 className="mb-1 text-sm sm:text-md lg:text-lg">Zárva</h4>
-                <h4 className="mb-1 text-sm sm:text-md lg:text-lg">8:00-20:00</h4>
-                <h4 className="mb-1 text-sm sm:text-md lg:text-lg">8:00-20:00</h4>
-                <h4 className="mb-1 text-sm sm:text-md lg:text-lg">8:00-20:00</h4>
-                <h4 className="mb-1 text-sm sm:text-md lg:text-lg">8:00-20:00</h4>
-                <h4 className="mb-1 text-sm sm:text-md lg:text-lg">7:00-16:00</h4>
-                <h4 className="mb-1 text-sm sm:text-md lg:text-lg">Zárva</h4>
+                <h4 className="mb-1 text-sm sm:text-lg lg:text-lg font-light">Zárva</h4>
+                <h4 className="mb-1 text-sm sm:text-lg lg:text-lg font-light">8:00-20:00</h4>
+                <h4 className="mb-1 text-sm sm:text-lg lg:text-lg font-light">8:00-20:00</h4>
+                <h4 className="mb-1 text-sm sm:text-lg lg:text-lg font-light">8:00-20:00</h4>
+                <h4 className="mb-1 text-sm sm:text-lg lg:text-lg font-light">8:00-20:00</h4>
+                <h4 className="mb-1 text-sm sm:text-lg lg:text-lg font-light">7:00-16:00</h4>
+                <h4 className="mb-1 text-sm sm:text-lg lg:text-lg font-light">Zárva</h4>
             </div>
             </div>
         </div>

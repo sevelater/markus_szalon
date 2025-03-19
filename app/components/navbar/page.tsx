@@ -143,7 +143,7 @@ function Menu() {
               ref={menuRef}
               className="fixed top-0 right-0 h-full w-64 bg-[#a08e5f] bg-opacity-30 backdrop-blur-md border-l shadow-lg flex items-center justify-center transition-all duration-300"
             >
-              <ul className="grid text-white text-md w-full text-center gap-y-8 justify-items-center">
+              <ul className="grid text-white text-lg w-full text-center gap-y-8 justify-items-center font-medium">
                 {links.map((link) =>
                   link.external ? (
                     <li key={link.href}>

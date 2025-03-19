@@ -189,7 +189,7 @@ const Service = () => {
                       onClick={() => window.open("https://markusszalon.salonic.hu/services", "_blank")}
                     >
                       <div className="flex-1">
-                        <p className="text-sm sm:text-base md:text-lg font-medium">{service.name}</p>
+                        <p className="text-sm custom:text-xl sm:text-lg md:text-lg font-medium">{service.name}</p>
                         <p className="text-xs sm:text-sm opacity-80">{service.time}</p>
                       </div>
                       <p className="text-sm sm:text-base md:text-lg font-medium text-right w-20 sm:w-24 md:w-28 text-nowrap">

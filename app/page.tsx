@@ -7,33 +7,32 @@ import Scheduel from './components/schedule/page';
 
 const Page = () => {
   return (
-    <div className="bg-main font-mono text-gray-100 overflow-hidden bg-[#c9ba7b] bg-opacity-70 to-[#8d7341] bg-gradient-to-t">
+    <div className="bg-main font-main text-gray-100 overflow-hidden bg-[#c9ba7b] bg-opacity-70 to-[#8d7341] bg-gradient-to-t">
       <Menu />
 
-      <div className="bg-[url('../public/main.jpg')] bg-cover bg-center justify-center items-center flex flex-col lg:box custom:text-center py-56 lg:py-44">
-        
+      <div className="bg-[url('../public/main.jpg')] bg-fixed bg-cover bg-center flex flex-col justify-center items-center py-56 lg:py-60 text-center">
+  
         {/* Centered Márkus Szalon paragraph */}
-        <p className="text-white custom:max-w-2xl text-[38px] md:text-[65px] font-medium w-full text-center custom:text-[80px] flex justify-center custom:mt-32">
+        <p className="text-white custom:max-w-2xl text-[38px] sm:text-[45px] md:text-[65px] font-medium font-main w-full custom:text-[80px]">
           Márkus Szalon
         </p>
 
         {/* New paragraph for custom width */}
-        <div className="text-center mt-3 mb-10 md:flex md:flex-col hidden lg:max-w-4xl custom:text-lg border-opacity-10 border-spacing-2 justify-center items-center">
-        <p className="text-white md:flex custom:max-w-2xl text-md font-light w-full text-center hidden lg:block italic">
-          &quot;Minden ollócsattintás egy újabb történet!&quot;
-        </p>
-        
-          <div className="bg-amber-200 bg-opacity-20 absolute py-16 px-56 text-3xl filter blur-3xl"></div>
+        <div className="mt-3 flex flex-col justify-center items-center custom:text-lg lg:max-w-4xl text-[14px]">
+          <p className="text-white custom:max-w-2xl text-md sm:text-lg custom:text-xl font-light w-full italic">
+            &quot;Minden ollócsattintás egy újabb történet!&quot;
+          </p>
+          <div className="bg-[#f7f7f7] bg-opacity-20 absolute py-16 px-28 text-3xl filter blur-3xl"></div>
         </div>
 
-        {/* Foglalás button with adjusted positioning */}
+        {/* Foglalás button with original positioning */}
         <button
-          className="mt-16 md:mt-4 lg:mt-0 p-4 px-10 md:px-12 bg-[#8d7341] bg-opacity-60 backdrop-blur-[2px] custom:hidden text-lg border border-[#b49f5b] hover:bg-[#8d7341] hover:bg-opacity-60 rounded-2xl transition-all duration-200 ease-in-out"
+          className="mt-14 md:mt-16 lg:mt-14 sm:px-12 p-4 px-7 py-3 md:px-12 bg-[#8d7341] bg-opacity-60 backdrop-blur-[2px] custom:hidden text-lg border border-[#b49f5b] hover:bg-[#8d7341] hover:bg-opacity-60 rounded-2xl transition-all duration-200 ease-in-out"
           onClick={() => window.open("https://markusszalon.salonic.hu/showServices/?employeeId=23182&placeId=10566&serviceId=0")}
         >
           Foglalás
         </button>
-        
+  
       </div>
 
       <div className="py-0.5 bg-[#302118]" id="line"></div>

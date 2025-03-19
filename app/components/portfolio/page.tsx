@@ -3,11 +3,9 @@
 const Page = () => {
   return (
     <div className="bg-gradient-to-t to-[#ad9451] from-[#54402f] scroll-mt-28" id="portfolio">
-      <div className="mx-auto pb-8 max-w-5xl">
+      <div className="mx-auto pb-8 max-w-5xl py-12">
 
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center py-3 sm:py-8 md:py-10 text-white">
-          Portfólióm
-        </h2>
+      <h1 className="text-2xl sm:text-3xl justify-self-center text-white">Portfólióm</h1>
 
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-10 p-2 sm:p-4 md:p-6">
