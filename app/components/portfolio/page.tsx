@@ -2,15 +2,15 @@
 
 const Page = () => {
   return (
-    <div className="bg-gradient-to-t to-[#ad9451] from-[#54402f] scroll-mt-28" id="portfolio">
+    <div className="bg-gradient-to-t from-[#54402f] to-[#c1895789] scroll-mt-28" id="portfolio">
       <div className="mx-auto pb-8 max-w-5xl py-12">
 
-      <h1 className="text-2xl sm:text-3xl justify-self-center text-white text-center mb-3">Portfólióm</h1>
+      <h1 className="text-2xl sm:text-3xl justify-self-center text-white text-center mb-5">Portfólióm</h1>
 
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-10 p-2 sm:p-4 md:p-6">
 
-          <div className="w-[200px] sm:w-[280px] lg:w-[360px] h-[200px] sm:h-[280px] lg:h-[360px] flex-shrink-0">
+          <div className="w-[250px] sm:w-[280px] lg:w-[360px] h-[250px] sm:h-[280px] lg:h-[360px] flex-shrink-0">
             <img
               src="/portfolio.png"
               alt="Saját magam"
@@ -18,9 +18,8 @@ const Page = () => {
             />
           </div>
 
-
-          <div className="max-w-lg w-full bg-[#8d7341] bg-opacity-30 rounded-lg p-4 text-white flex flex-col justify-center h-auto border border-[#c7a56533]">
-            <p className="text-sm sm:text-base md:text-lg text-center lg:text-left leading-relaxed">
+          <div className="custom:max-w-lg bg-[#54402f] m-2 bg-opacity-10 rounded-lg p-4 text-white flex flex-col justify-center h-auto border border-[#c7a56533]">
+            <p className="text-sm sm:text-base md:text-lg text-center lg:text-left leading-relaxed m-1">
               A haj nem csak munka, hanem szenvedély:
               <br />
               <br />
@@ -30,7 +29,8 @@ const Page = () => {
               <br />
               Versenyeken is bizonyítottam: 
               <br />
-              <strong className="font-semibold">első hely</strong> férfi modern szárításban,
+              <br />
+              <strong className="font-semibold">Első hely</strong> férfi modern szárításban,
               <strong className="font-semibold"> dobogós helyezések</strong> a Magyar Bajnokságon.
               <br />
               <br />

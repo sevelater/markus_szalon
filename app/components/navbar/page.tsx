@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { links } from "../consts";
 
-function Menu() {
+function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
 
@@ -95,7 +95,7 @@ function Menu() {
             ))}
           </ul>
           <button
-            className="text-lg p-4 px-12 border border-[#b49f5b] hover:bg-[#8d7341] hover:bg-opacity-60 rounded-2xl ml-10 transition-all duration-200 ease-in-out"
+            className="text-lg p-4 px-12 border border-[#b49f5b] hover:bg-[#8d7341] hover:bg-opacity-60 rounded-2xl ml-10 transition-all duration-200 ease-in-out font-medium"
             onClick={() =>
               window.open(
                 "https://markusszalon.salonic.hu/showServices/?employeeId=23182&placeId=10566&serviceId=0"
@@ -178,4 +178,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default Navbar;

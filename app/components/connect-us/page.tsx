@@ -29,7 +29,7 @@ const Page = () => {
 
         <div className="hidden md:block md:w-px md:h-[240px] lg:h-[280px] bg-gray-300 mx-4 self-center"></div>
 
-        <div className="h-auto md:h-[250px] lg:h-[300px] flex flex-col">
+        <div className="h-auto md:h-[250px] lg:h-[260px] flex flex-col">
           <h1 className="mb-4 ml-2 text-2xl font-semibold text-white">Kapcsolat</h1>
           <div className="gap-y-3 pb-5 px-5 pt-5 md:pb-8 md:pt-8 lg:py-10 rounded-md md:rounded-lg lg:rounded-lg font-sans border border-gray-300 bg-white bg-opacity-10 text-white flex-1 flex flex-col justify-between md:gap-y-6 lg:gap-y-4">
             
