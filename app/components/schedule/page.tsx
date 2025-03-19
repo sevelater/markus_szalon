@@ -5,8 +5,8 @@ const Page = () => {
         <>
             <div className="bg-[url('/background.png')] bg-cover bg-center
                       h-auto justify-items-center text-center w-full 
-                      lg:bg-[url('../public/calendar.jpg')] 
-                      md:bg-[url('../public/desktop.jpg')]" id="schedule__1">
+                      lg:bg-[url('/calendar.jpg')] 
+                      md:bg-[url('/desktop.jpg')]" id="schedule__1">
 
             <div className="w-full bg-black bg-opacity-50 md:py-5">
          
