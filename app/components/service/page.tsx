@@ -80,6 +80,7 @@ const Service = () => {
     <div className="bg-gradient-to-t from-[#9f8e53] to-[#54402f] pb-4 sm:pb-5 md:pb-8">
       <div className="grid p-4 sm:p-6 h-auto w-full max-w-5xl mx-auto scroll-mt-20" id="szolgaltatasok">
         <h1 className="text-2xl sm:text-3xl justify-self-center my-8 sm:my-12 text-white">Szolgáltatások</h1>
+        <p className="text-center mb-10 text-sm opacity-80 mx-7">*Evolution hajfestés esetén csak előre egyeztetés során lehetséges időpontot foglalni</p>
 
         {/* Felső gombok */}
         <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-8">

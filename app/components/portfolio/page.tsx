@@ -27,7 +27,7 @@ const Page = () => {
               ruhákhoz és ékszerekhez.
               <br />
               <br />
-              Versenyeken is bizonyítottam: 
+              Versenyeken is indultam: 
               <br />
               <br />
               <strong className="font-semibold">Első hely</strong> férfi modern szárításban,

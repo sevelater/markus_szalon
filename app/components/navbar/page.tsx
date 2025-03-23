@@ -2,22 +2,24 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { links } from "../consts";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { links, getLinkHref } from "../consts";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const pathname = usePathname();
 
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
     if (previous && latest > previous && latest > 100) {
       setHidden(true);
-      setIsOpen(false); // Menü bezárása scrollozáskor
+      setIsOpen(false);
     } else {
       setHidden(false);
     }
@@ -44,7 +46,6 @@ function Navbar() {
     };
   }, [isOpen]);
 
-
   const hamburgerVariants = {
     visible: { y: 0, transition: { duration: 0.2, ease: "easeOut" } },
     hidden: { y: "-100%", transition: { duration: 0.2, ease: "easeOut", delay: 0.3 } },
@@ -59,41 +60,42 @@ function Navbar() {
         }}
         initial="visible"
         animate={hidden ? "hidden" : "visible"}
-        transition={{ ease: "easeOut", duration: 0.2 }} // Desktop animáció
+        transition={{ ease: "easeOut", duration: 0.2 }}
         className="fixed left-0 w-full z-50 justify-items-center"
       >
-        {/* Nagy képernyős navbar */}
+        {/* Desktop navbar */}
         <div className="hidden custom:flex justify-center items-center px-6 xl:px-12 py-4 w-full rounded-md backdrop-blur-md">
           <ul className="flex gap-4 xl:gap-6 items-center">
             <li className="group">
-                <motion.img
-                  src="/logo.png"
-                  alt="logó"
-                  className="h-16 w-16 object-contain shadow-md rounded-full border-2 border-[#c5b87f] mr-12"
-                />
+              <motion.img
+                src="/logo.png"
+                alt="logó"
+                className="h-16 w-16 object-contain shadow-md rounded-full border-2 border-[#c5b87f] mr-12"
+              />
             </li>
             {links.map((link) => (
-              <li key={link.href} className="relative group">
+              <li key={link.href} className="relative group tracking-wider font-medium">
                 {link.external ? (
                   <motion.button
-                    className="text-white text-lg font-semibold tracking-wider px-4 py-2 relative z-10 hover:text-opacity-70 transition-all duration-200 ease-in-out"
+                    className="text-white text-lg px-4 py-2 relative z-10 hover:text-opacity-70 transition-all duration-200 ease-in-out"
                     onClick={() => window.open(link.href, "_blank")}
                   >
                     {link.text}
                   </motion.button>
                 ) : (
-                  <motion.a
-                    href={link.href}
-                    className="text-white text-lg font-semibold tracking-wider px-4 py-2 relative z-10 hover:text-opacity-70 transition-all duration-200 ease-in-out"
-                  >
-                    {link.text}
-                  </motion.a>
+                  <Link href={getLinkHref(link, pathname)}>
+                    <motion.span
+                      className="text-white text-lg px-4 py-2 relative z-10 hover:text-opacity-70 transition-all duration-200 ease-in-out"
+                    >
+                      {link.text}
+                    </motion.span>
+                  </Link>
                 )}
               </li>
             ))}
           </ul>
           <button
-            className="text-lg p-4 px-12 border border-[#b49f5b] hover:bg-[#8d7341] hover:bg-opacity-60 rounded-2xl ml-10 transition-all duration-200 ease-in-out font-medium"
+            className="text-lg p-4 px-12 border border-[#b49f5b] hover:bg-[#8d7341] hover:bg-opacity-60 hover:text-white/80 rounded-2xl ml-10 transition-all duration-200 ease-in-out font-normal"
             onClick={() =>
               window.open(
                 "https://markusszalon.salonic.hu/showServices/?employeeId=23182&placeId=10566&serviceId=0"
@@ -104,7 +106,7 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Hamburger menu kisebb képernyőkön - desktop-szerű animáció */}
+        {/* Hamburger menu */}
         <motion.div
           variants={hamburgerVariants}
           initial="visible"
@@ -134,14 +136,14 @@ function Navbar() {
           </button>
         </motion.div>
 
-        {/* Kihúzható menü kisebb képernyőkön */}
+        {/* Mobile menu */}
         {isOpen && !hidden && (
           <div className="custom:hidden fixed inset-0 bg-transparent z-40">
             <div
               ref={menuRef}
               className="fixed top-0 right-0 h-full w-64 bg-[#a08e5f] bg-opacity-30 backdrop-blur-md border-l shadow-lg flex items-center justify-center transition-all duration-300"
             >
-              <ul className="grid text-white text-lg w-full text-center gap-y-8 justify-items-center font-medium">
+              <ul className="grid text-white text-lg w-full text-center gap-y-8 justify-items-center tracking-wider font-medium">
                 {links.map((link) =>
                   link.external ? (
                     <li key={link.href}>
@@ -157,13 +159,13 @@ function Navbar() {
                     </li>
                   ) : (
                     <li key={link.href}>
-                      <a
-                        href={link.href}
+                      <Link
+                        href={getLinkHref(link, pathname)}
                         className="block p-2 hover:text-[#c5b87f] transition-colors w-auto"
                         onClick={() => setIsOpen(false)}
                       >
                         {link.text}
-                      </a>
+                      </Link>
                     </li>
                   )
                 )}

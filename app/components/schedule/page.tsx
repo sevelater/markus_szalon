@@ -11,7 +11,7 @@ const Page = () => {
             <div className="w-full bg-black bg-opacity-50 md:py-5">
          
             <div 
-            className="flex gap-12 mx-1 py-5 px-9 justify-center w-full scroll-mt-20" 
+            className="flex gap-12 mx-1 py-5 px-9 justify-center w-full scroll-mt-20 font-mono" 
             id="elerhetosegek"
             >
 

@@ -1,6 +1,5 @@
 "use client";
 
-import Navbar from './components/navbar/page';
 import Service from './components/service/page';
 import Portfolio from './components/portfolio/page';
 import Scheduel from './components/schedule/page';
@@ -8,7 +7,7 @@ import Scheduel from './components/schedule/page';
 const Page = () => {
   return (
     <div className="bg-main font-main text-gray-100 overflow-hidden bg-[#c9ba7b] bg-opacity-70 to-[#8d7341] bg-gradient-to-t">
-      <Navbar />
+
 
       <div className="bg-[url('/main.jpg')] bg-cover bg-center flex flex-col justify-center items-center py-56 lg:py-60 text-center">
   

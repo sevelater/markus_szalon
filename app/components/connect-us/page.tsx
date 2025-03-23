@@ -5,7 +5,7 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-const Page = () => {
+const Footer = () => {
   return (
     <div className="object-bottom h-full">
       <div className="pb-5 md:pb-20 lg:pb-24 grid lg:justify-evenly h-auto bg-gradient-to-t from-[#ad9451] to-[#54402f] sm:grid md:flex lg:flex p-3 gap-y-8 lg:gap-x-12 md:gap-x-12 lg:pt-12 md:pt-10 md:justify-evenly">
@@ -64,4 +64,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Footer;
