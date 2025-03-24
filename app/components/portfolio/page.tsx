@@ -27,11 +27,12 @@ const Page = () => {
               ruhákhoz és ékszerekhez.
               <br />
               <br />
-              Versenyeken is indultam: 
+              Versenyeken is indultam:
               <br />
               <br />
-              <strong className="font-semibold">Első hely</strong> férfi modern szárításban,
-              <strong className="font-semibold"> dobogós helyezések</strong> a Magyar Bajnokságon.
+              A <strong className="font-semibold">Magyar Online bajnokságon</strong> férfi modern szárításban második és harmadik hely,
+              <br />
+              a <strong className="font-semibold">Miskolci Kézműves Kupán</strong> pedig harmadik helyezést értem el.
               <br />
               <br />
              

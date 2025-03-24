@@ -95,7 +95,7 @@ function Navbar() {
             ))}
           </ul>
           <button
-            className="text-lg p-4 px-12 border border-[#b49f5b] hover:bg-[#8d7341] hover:bg-opacity-60 hover:text-white/80 rounded-2xl ml-10 transition-all duration-200 ease-in-out font-normal"
+            className="text-lg p-4 px-12 border border-[#b49f5b] hover:bg-[#8d7341] hover:bg-opacity-60 rounded-2xl ml-10 transition-all duration-200 ease-in-out font-normal"
             onClick={() =>
               window.open(
                 "https://markusszalon.salonic.hu/showServices/?employeeId=23182&placeId=10566&serviceId=0"
@@ -143,7 +143,7 @@ function Navbar() {
               ref={menuRef}
               className="fixed top-0 right-0 h-full w-64 bg-[#a08e5f] bg-opacity-30 backdrop-blur-md border-l shadow-lg flex items-center justify-center transition-all duration-300"
             >
-              <ul className="grid text-white text-lg w-full text-center gap-y-8 justify-items-center tracking-wider font-medium">
+              <ul className="grid text-white text-md w-full text-center gap-y-8 pt-10 justify-items-center tracking-wider font-medium font-main">
                 {links.map((link) =>
                   link.external ? (
                     <li key={link.href}>
