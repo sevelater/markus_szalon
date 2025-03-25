@@ -27,7 +27,8 @@ const Page = () => {
           </div>
 
           {/* Foglalás button */}
-          <button className="mt-14 md:mt-16 hover:bg-opacity-80 transition-all duration-300 lg:mt-14 sm:px-12 p-4 px-12 py-3 md:px-12 bg-[#8d7341] bg-opacity-60 backdrop-blur-[2px] custom:hidden text-lg border border-[#b49f5b] hover:bg-[#8d7341] rounded-2xl ease-in-out" onClick={() => window.open("https://markusszalon.salonic.hu/showServices/?employeeId=23182&placeId=10566&serviceId=0")}
+          <button className="mt-14 md:mt-16 hover:bg-opacity-80 transition-all duration-300 lg:mt-14 sm:px-12 p-4 px-12 py-3 md:px-12 bg-[#8d7341] bg-opacity-60 backdrop-blur-[2px] custom:hidden text-lg border border-[#b49f5b] hover:bg-[#8d7341] rounded-2xl ease-in-out" 
+          onClick={() => window.open("https://markusszalon.salonic.hu/showServices/?employeeId=23182&placeId=10566&serviceId=0")}
           >
             Foglalás
           </button>
