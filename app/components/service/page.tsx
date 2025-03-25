@@ -242,7 +242,7 @@ const Service = () => {
                       key={index}
                       variants={serviceVariants}
                       className="flex flex-row justify-between items-center p-3 sm:p-4 border border-gray-300 rounded-lg bg-white bg-opacity-10 shadow-md text-white transition-transform duration-300 hover:scale-105 cursor-pointer"
-                      onClick={() => window.open("https://markusszalon.salonic.hu/services", "_blank")}
+                      onClick={() => window.open("https://markusszalon.salonic.hu/showServices/?employeeId=23182&placeId=10566&serviceId=0", "_blank")}
                     >
                       <div className="flex-1">
                         <p className="text-sm custom:text-xl sm:text-lg md:text-lg font-medium">{service.name}</p>
