@@ -7,11 +7,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Hajgyogyaszat = () => {
   return (
     <div className="text-gray-100 overflow-hidden bg-gradient-to-t from-[#dadada] to-[#b8b8b8] bg-opacity-40">
-      <div className="relative bg-[url('/hairmedicine.jpg')] bg-cover bg-center w-full py-56 lg:py-60 flex flex-col justify-center items-center text-center">
-        <div className="absolute inset-0 bg-black bg-opacity-30 backdrop-blur-sm"></div>
-
+      {/* Header */}
+      <div className="relative bg-[url('/hairmedicine.jpg')] bg-cover bg-center w-full py-32 sm:py-48 lg:py-60 flex flex-col justify-center items-center text-center">
+        <div className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
         <div className="relative z-10">
-          <h1 className="text-white text-[38px] sm:text-[45px] md:text-[65px] lg:text-[80px] lg:font-extrabold font-medium font-main max-w-2xl">
+          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-main max-w-3xl px-4">
             Hajgyógyászati kezelés
           </h1>
         </div>
@@ -20,80 +20,208 @@ const Hajgyogyaszat = () => {
       <div className="py-0.5 bg-[#302118]" id="line"></div>
 
       {/* Main section */}
+      <div className="bg-gradient-to-t to-[#7cd168]/20 from-[#a7d89d]/40 flex flex-col items-center py-16 sm:py-20 px-4">
+        <div className="w-full max-w-5xl flex flex-col lg:flex-row lg:flex-wrap gap-12 justify-center sm:justify-start lg:justify-evenly items-center">
+          {/* Hajhullás elleni kezelés */}
+          <section className="flex flex-col items-center max-w-md w-full">
+            <h1 className="font-bold text-3xl sm:text-4xl pb-10 text-center text-gray-800">
+              Hajhullás elleni kezelés
+            </h1>
+            <div className="flex flex-col gap-6 justify-center items-center">
+              <div className="flex items-center gap-4 w-full">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  size="xl"
+                  className="text-green-800 flex-shrink-0"
+                />
+                <p className="text-lg font-medium text-gray-700 text-center">
+                  <strong>Sampon</strong>: Kíméletes, <strong>hajhullásra hajlamos hajra</strong>, probiotikumokkal és prebiotikumokkal erősít, <strong>szulfát- és paraffinmentes</strong>.
+                </p>
+              </div>
+              <div className="h-px bg-green-900/30 w-full lg:hidden"></div>
+              <div className="flex items-center gap-4 w-full">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  size="xl"
+                  className="text-green-800 flex-shrink-0"
+                />
+                <p className="text-lg font-medium text-gray-700 text-center">
+                  <strong>Ampulla</strong>: Fejbőrbe masszírozandó, <strong>nem lemosandó</strong>, többször használható.
+                </p>
+              </div>
+              <div className="h-px bg-green-900/30 w-full lg:hidden"></div>
+              <div className="flex items-center gap-4 w-full">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  size="xl"
+                  className="text-green-800 flex-shrink-0"
+                />
+                <p className="text-lg font-medium text-gray-700 text-center">
+                  <strong>Fontos</strong>: Belső problémák (pl. <strong>gyulladás</strong>) esetén először azt kell kezelni.
+                </p>
+              </div>
+            </div>
+          </section>
 
-      <div className="bg-gradient-to-t to-[#7cd168]/30 from-[#a7d89d]/50 justify-items-center flex justify-center flex-col py-20">
-        <div className="flex-col justify-items-center justify-center">
-          <h1 className="font-bold text-[30px] pb-20 mx-5 text-center">
-            Miért jobb egy növényi terméket használni?
-          </h1>
+          {/* Semi di Lino Style Care – Hajformázás */}
+          <section className="flex flex-col items-center max-w-md w-full">
+            <h1 className="font-bold text-3xl sm:text-4xl pb-10 text-center text-gray-800">
+              Semi di Lino Style Care – Hajformázás
+            </h1>
+            <div className="flex flex-col gap-6 justify-center items-center">
+              <div className="flex items-center gap-4 w-full">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  size="xl"
+                  className="text-green-800 flex-shrink-0"
+                />
+                <p className="text-lg font-medium text-gray-700 text-center">
+                  <strong>Vegán</strong>, újrahasznosított csomagolás.
+                </p>
+              </div>
+              <div className="h-px bg-green-900/30 w-full lg:hidden"></div>
+              <div className="flex items-center gap-4 w-full">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  size="xl"
+                  className="text-green-800 flex-shrink-0"
+                />
+                <p className="text-lg font-medium text-gray-700 text-center">
+                  <strong>100% természetes hatóanyagok</strong> (hialuronsav, fruktóz).
+                </p>
+              </div>
+              <div className="h-px bg-green-900/30 w-full lg:hidden"></div>
+              <div className="flex items-center gap-4 w-full">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  size="xl"
+                  className="text-green-800 flex-shrink-0"
+                />
+                <p className="text-lg font-medium text-gray-700 text-center">
+                  <strong>Syle Guard komplex</strong>: Hővédő, párataszító, <strong>anti-frizz</strong>, könnyű formázás.
+                </p>
+              </div>
+              <div className="h-px bg-green-900/30 w-full lg:hidden"></div>
+              <div className="flex items-center gap-4 w-full">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  size="xl"
+                  className="text-green-800 flex-shrink-0"
+                />
+                <p className="text-lg font-medium text-gray-700 text-center">
+                  <strong>Természetes illatok</strong>: rózsabors, körte, vanília, cédrus stb.
+                </p>
+              </div>
+            </div>
+          </section>
 
-          <div className="max-w-lg mx-5 justify-center">
-            <div className="flex text-center gap-x-10 justify-items-center items-center justify-center mb-5">
-              <FontAwesomeIcon
-                icon={faCircleCheck}
-                size="2xl"
-                className="bg-green-900 rounded-full"
-              />
-              <p className="text-center text-sm p-2 font-medium tracking-wide">
-                Nem tartalmaz perszulfátokat, kemikáliákat, ezzel az egészséget
-                sem károsítja
+          {/* Miért növényi termék? */}
+          <section className="flex flex-col items-center max-w-md w-full">
+            <h1 className="font-bold text-3xl sm:text-4xl pb-10 text-center text-gray-800">
+              Miért növényi termék?
+            </h1>
+            <div className="flex flex-col gap-6 justify-center items-center">
+              <div className="flex items-center gap-4 w-full">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  size="xl"
+                  className="text-green-800 flex-shrink-0"
+                />
+                <p className="text-lg font-medium text-gray-700 text-center">
+                  Nem tartalmaz <strong>káros kemikáliákat</strong> (pl. perszulfát).
+                </p>
+              </div>
+              <div className="h-px bg-green-900/30 w-full lg:hidden"></div>
+              <div className="flex items-center gap-4 w-full">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  size="xl"
+                  className="text-green-800 flex-shrink-0"
+                />
+                <p className="text-lg font-medium text-gray-700 text-center">
+                  Megelőzi a <strong>fejbőrproblémákat</strong> (korpásodás, hajhullás, gyulladás).
+                </p>
+              </div>
+              <div className="h-px bg-green-900/30 w-full lg:hidden"></div>
+              <div className="flex items-center gap-4 w-full">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  size="xl"
+                  className="text-green-800 flex-shrink-0"
+                />
+                <p className="text-lg font-medium text-gray-700 text-center">
+                  <strong>Egészséges haj és fejbőr</strong> magas hatóanyagtartalommal.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Szolgáltatásaim */}
+          <section className="flex flex-col items-center max-w-md w-full">
+            <h1 className="font-bold text-3xl sm:text-4xl pb-10 text-center text-gray-800">
+              Szolgáltatásaim
+            </h1>
+            <div className="flex flex-col gap-6 justify-center items-center">
+              <div className="flex items-center gap-4 w-full">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  size="xl"
+                  className="text-green-800 flex-shrink-0"
+                />
+                <p className="text-lg font-medium text-gray-700 text-center">
+                  <strong>Növényi alapú termékek</strong> + fejbőrprobléma-kezelés.
+                </p>
+              </div>
+              <div className="h-px bg-green-900/30 w-full lg:hidden"></div>
+              <div className="flex items-center gap-4 w-full">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  size="xl"
+                  className="text-green-800 flex-shrink-0"
+                />
+                <p className="text-lg font-medium text-gray-700 text-center">
+                  <strong>Konzultáció</strong>: folyamat és otthoni ápolás megbeszélése.
+                </p>
+              </div>
+              <div className="h-px bg-green-900/30 w-full lg:hidden"></div>
+              <div className="flex items-center gap-4 w-full">
+                <FontAwesomeIcon
+                  icon={faCircleCheck}
+                  size="xl"
+                  className="text-green-800 flex-shrink-0"
+                />
+                <p className="text-lg font-medium text-gray-700 text-center">
+                  <strong>Cél</strong>: Szép, <strong>egészséges haj</strong> visszanyerése.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Alapismertető: Mi is a hajgyógyászat? */}
+          <section className="flex flex-col items-center max-w-md w-full">
+            <h1 className="font-bold text-3xl sm:text-4xl pb-10 pt-5 text-center text-gray-800">
+              Mi is a hajgyógyászat?
+            </h1>
+            <div className="max-w-2xl mx-auto text-center">
+              <p className="text-lg font-medium text-gray-700">
+                A hajgyógyászat a haj és fejbőr <strong>egészségét</strong> állítja helyre <strong>természetes módszerekkel</strong>. Célja a problémák (pl. <strong>hajhullás</strong>, korpásodás) kezelése. <strong>Személyre szabott kezelést</strong> és ápolási rutint kínál, <strong>növényi, kemikáliamentes termékekkel</strong>. <br />Egészséges, szép haj a végeredmény!
               </p>
             </div>
+          </section>
+        </div>
 
-            <div className="h-0.5 bg-green-900" id="line"></div>
-
-            <div className="flex text-center gap-x-10 justify-items-center items-center justify-center mb-5">
-              <FontAwesomeIcon
-                icon={faCircleCheck}
-                size="2xl"
-                className="bg-green-900 rounded-full"
-              />
-              <p className="text-center text-sm p-2 font-medium tracking-wide">
-                Eltávolítja a felgyülemlett rosszindulatú anyagokat és megelőzi
-                azoknak megjelenését
-              </p>
-            </div>
-
-            <div className="h-0.5 bg-green-900" id="line"></div>
-
-            <div className="flex text-center gap-x-10 justify-items-center items-center justify-center mb-5">
-              <FontAwesomeIcon
-                icon={faCircleCheck}
-                size="2xl"
-                className="bg-green-900 rounded-full"
-              />
-              <p className="text-center text-sm p-2 font-medium tracking-wide">
-                Nem tartalmaz perszulfátokat, kemikáliákat, ezzel az egészséget
-                sem károsítja
-              </p>
-            </div>
-
-            <div className="h-0.5 bg-green-900" id="line"></div>
-
-            <div className="flex text-center gap-x-10 justify-items-center items-center justify-center">
-              <FontAwesomeIcon
-                icon={faCircleCheck}
-                size="2xl"
-                className="bg-green-900 rounded-full"
-              />
-              <p className="text-center text-sm p-2 font-medium tracking-wide">
-                Nem tartalmaz perszulfátokat, kemikáliákat, ezzel az egészséget
-                sem károsítja
-              </p>
-            </div>
-          </div>
-          <div className="justify-items-center pt-10 flex justify-center md:gap-x-10">
-            <img 
-            src="hairmedicine2.jpg" 
-            alt="semi di lino termékek" 
-            className="w-1/4 h-auto max-w-sm"
-            />
-            <img 
-            src="hairmedicine3.png" 
-            alt="semi di lino termékek" 
-            className="w-1/4 max-w-sm"
-            />
-          </div>
+        {/* Képek */}
+        <div className="flex flex-col items-center sm:flex-row sm:justify-start gap-6 pt-10">
+          <img
+            src="hairmedicine2.jpg"
+            alt="semi di lino termékek"
+            className="w-64 h-64 sm:w-80 sm:h-80 object-cover rounded-lg shadow-md"
+          />
+          <img
+            src="hairmedicine3.png"
+            alt="semi di lino termékek"
+            className="w-64 h-64 sm:w-80 sm:h-80 object-cover rounded-lg shadow-md"
+          />
         </div>
       </div>
     </div>
@@ -101,8 +229,3 @@ const Hajgyogyaszat = () => {
 };
 
 export default Hajgyogyaszat;
-
-// Általában a felgyülemlett anyagoktól lesznek a fejbőrproblémák, amik korpásodáshoz, hajhulláshoz, vagy gyulladáshoz vezethetnek.
-// Ezért fontosak a növényi alapú termékek, amik magas hatóanyaggal rendelkeznek, hogy a haj és a fejbőr mindig egészséges maradjon.
-// Nálam nem csak a növényi alapú termékek találhatóak meg, de a fejbőrproblémát segítő anyagok is. Mindenkit kérek aki fejbőrprobléma kezelésére jönne,
-// hogy előtte jöjjön el egy konzultációra hogy megbeszéljük a folyamatot, az otthoni ápolást.
