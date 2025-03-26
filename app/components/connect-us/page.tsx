@@ -11,13 +11,13 @@ const Footer = () => {
       <div className="pb-5 md:pb-20 lg:pb-24 grid lg:justify-evenly h-auto bg-gradient-to-t from-[#ad9451] to-[#54402f] sm:grid md:flex lg:flex p-3 gap-y-8 lg:gap-x-12 md:gap-x-12 lg:pt-12 md:pt-10 md:justify-evenly">
         <div className="h-72 sm:h-80 md:h-[250px] lg:h-[300px] w-full md:max-w-[500px] lg:max-w-[800px] rounded-md sm:w-full md:w-2/3 lg:w-6/12">
           <a
-            href="https://www.google.com/maps/dir/?api=1&destination=47.50891177089248,18.92861681349105&destination_place_id=0x4741df0050b826a9:0x5f2293613cb47231"
+            href="https://www.google.com/maps/dir/?api=1&destination=47.5087590,18.9291557"
             target="_blank"
             rel="noopener noreferrer"
             className="block w-full h-full"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1123.047502066955!2d18.929247183500305!3d47.50918967836878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741df0050b826a9%3A0x5f2293613cb47231!2sM%C3%A1rkus%20Szalon!5e0!3m2!1shu!2shu!4v1740394854670!5m2!1hu!2hu"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1123.047502066955!2d18.9291557!3d47.5087590!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741df0050b826a9%3A0x5f2293613cb47231!2sM%C3%A1rkus%20Szalon!5e0!3m2!1shu!2shu!4v1740394854670!5m2!1hu!2hu"
               style={{ border: 0 }}
               allowFullScreen
               loading="eager"
