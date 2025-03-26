@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Hajgyogyaszat = () => {
   return (
-    <div className="text-gray-100 overflow-hidden bg-gradient-to-t from-[#dadada] to-[#b8b8b8] bg-opacity-40">
-      <div className="relative bg-[url('/hairmedicine.jpg')] bg-cover bg-center w-full py-56 lg:py-60 flex flex-col justify-center items-center text-center">
+    <div className="text-gray-100 overflow-hidden bg-gradient-to-t from-[#dadada] to-[#b8b8b8] bg-opacity-40 min-h-screen">
+      <div className="relative bg-[url('/hairmedicine.jpg')] bg-cover bg-center flex flex-col justify-center items-center py-56 lg:py-60 text-center">
         <div className="absolute inset-0 bg-black bg-opacity-30 backdrop-blur-sm"></div>
 
         <div className="relative z-10">
