@@ -8,7 +8,7 @@ const Hajgyogyaszat = () => {
   return (
     <div className="text-gray-100 overflow-hidden bg-gradient-to-t from-[#dadada] to-[#b8b8b8] bg-opacity-40">
       {/* Header */}
-      <div className="relative bg-[url('/hairmedicine.jpg')] bg-cover bg-center w-full py-32 sm:py-48 lg:py-60 flex flex-col justify-center items-center text-center">
+      <div className="relative bg-[url('/hairmedicine.jpg')] bg-cover bg-center flex flex-col justify-center items-center py-56 lg:py-60 text-center">
         <div className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
         <div className="relative z-10">
           <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-main max-w-3xl px-4">
