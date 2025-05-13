@@ -3,6 +3,7 @@
 import Service from './components/service/page';
 import Portfolio from './components/portfolio/page';
 import Scheduel from './components/schedule/page';
+// import Admin from './components/admin/page';
 
 const Page = () => {
   return (
@@ -38,6 +39,7 @@ const Page = () => {
       <div className="py-0.5 bg-[#302118]" id="line"></div>
 
       <div className="z-10">
+        {/* <Admin/> */}
         <Service />
       </div>
 

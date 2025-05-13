@@ -1,7 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { db } from "../../firebase";
+import { doc, getDoc } from "firebase/firestore";
+
+// TypeScript interfész a servicesData struktúrájához
+interface ServiceItem {
+  name: string;
+  price: number;
+  time: string;
+  material: string;
+  rag: string;
+}
+
+interface ServicesData {
+  no: {
+    rovid: ServiceItem[];
+    felhoszu: ServiceItem[];
+    hosszu: ServiceItem[];
+  };
+  ferfi: ServiceItem[];
+  gyerek: ServiceItem[];
+}
 
 const formatPrice = (price: number): string => {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -10,105 +31,28 @@ const formatPrice = (price: number): string => {
 const Service = () => {
   const [selectedCategory, setSelectedCategory] = useState<"no" | "ferfi" | "gyerek">("no");
   const [selectedLength, setSelectedLength] = useState<"rovid" | "felhoszu" | "hosszu">("rovid");
+  const [servicesData, setServicesData] = useState<ServicesData | null>(null);
 
-  const servicesData = {
-    no: {
-      rovid: [
-        { name: "Mosás, Szárítás", price: 5000, time: "35 perc", material: "", rag: "" },
-        { name: "Mosás, Vágás, Szárítás", price: 6000, time: "50 perc", material: "", rag: "" },
+  // Szolgáltatások lekérése Firestore-ból
+  useEffect(() => {
+    const fetchServices = async () => {
+      const docRef = doc(db, "settings", "services");
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        setServicesData(docSnap.data() as ServicesData);
+      } else {
+        console.log("Nincs ilyen dokumentum!");
+      }
+    };
+    fetchServices();
+  }, []);
 
-        { name: "Tőszőkítés", price: 10000, time: "2 óra", material: "+ anyag", rag: "" },
-        { name: "Teljes szőkítés", price: 12000, time: "2 óra", material: "+ anyag", rag: "" },
+  // Betöltési állapot kezelése
+  if (!servicesData) {
+    return <p>Betöltés...</p>;
+  }
 
-        { name: "Ammóniamentes tőfestés", price: 9000, time: "90 perc", material: "", rag: "" },
-        { name: "Ammóniamentes festés", price: 11500, time: "2 óra", material: "", rag: "" },
-
-        { name: "Evolution tőfestés", price: 7800, time: "60-90 perc", material: "", rag: "" },
-        { name: "Evolution tőfestés vágással", price: 8800, time: "60-90 perc", material: "", rag: "" },
-        { name: "Evolution festés", price: 9000, time: "60-90 perc", material: "", rag: "" },
-        { name: "Evolution festés vágással", price: 10000, time: "60-90 perc", material: "", rag: "" },
-
-        { name: "Ombré/szabadkézi technika", price: 10000, time: "2 óra", material: "+ anyag", rag: "" },
-
-        { name: "Tőfestés, melír", price: 10000, time: "2 óra", material: "", rag: " -tól" },
-        { name: "Teljes festés, melír", price: 10000, time: "60-90 perc", material: "", rag: " -tól" },
-
-        { name: "Töredezés elleni kezelés", price: 10500, time: "60-90 perc", material: "4 lépéses", rag: "" },
-        { name: "Hajhullás elleni kezelés", price: 8000, time: "60-90 perc", material: "3 lépéses", rag: "" },
-
-        { name: "Vasalás/Göndörítés/Trimelés", price: 1000, time: "20 perc", material: "", rag: "" },
-      ],
-      felhoszu: [
-        { name: "Mosás, Szárítás", price: 6000, time: "50 perc", material: "", rag: "" },
-        { name: "Mosás, Vágás, Szárítás", price: 7000, time: "60 perc", material: "", rag: "" },
-
-        { name: "Tőszőkítés", price: 12500, time: "2 óra 30 perc", material: "+ anyag", rag: "" },
-        { name: "Teljes szőkítés", price: 15500, time: "3 óra", material: "+ anyag", rag: "" },
-
-        { name: "Ammóniamentes tőfestés", price: 12000, time: "2 óra", material: "", rag: "" },
-        { name: "Ammóniamentes festés", price: 14500, time: "2 óra 30 perc", material: "", rag: "" },
-
-        { name: "Evolution tőfestés", price: 9000, time: "60-90 perc", material: "", rag: "" },
-        { name: "Evolution tőfestés vágással", price: 10000, time: "60-90 perc", material: "", rag: "" },
-        { name: "Evolution festés", price: 11000, time: "60-90 perc", material: "", rag: "" },
-        { name: "Evolution festés vágással", price: 12000, time: "60-90 perc", material: "", rag: "" },
-
-        { name: "Ombré/szabadkézi technika", price: 10000, time: "2 óra 30 perc", material: "+ anyag", rag: "" },
-
-        { name: "Tőfestés, melír", price: 13000, time: "3 óra", material: "", rag: " -tól" },
-        { name: "Teljes festés, melír", price: 13000, time: "60-90 perc", material: "", rag: " -tól" },
-
-        { name: "Töredezés elleni kezelés", price: 13000, time: "60-90 perc", material: "4 lépéses", rag: "" },
-        { name: "Hajhullás elleni kezelés", price: 10000, time: "60-90 perc", material: "3 lépéses", rag: "" },
-
-        { name: "Vasalás/Göndörítés/Trimelés", price: 1500, time: "30 perc", material: "", rag: "" },
-      ],
-      hosszu: [
-        { name: "Mosás, Szárítás", price: 7000, time: "60 perc", material: "", rag: "" },
-        { name: "Mosás, Vágás, Szárítás", price: 8000, time: "70 perc", material: "", rag: "" },
-
-        { name: "Tőszőkítés", price: 16000, time: "3 óra", material: "+ anyag", rag: "" },
-        { name: "Teljes szőkítés", price: 19000, time: "4 óra", material: "+ anyag", rag: "" },
-
-        { name: "Ammóniamentes tőfestés", price: 15000, time: "2 óra 30 perc", material: "", rag: "" },
-        { name: "Ammóniamentes festés", price: 17500, time: "2 óra 50 perc", material: "", rag: "" },
-
-        { name: "Evolution tőfestés", price: 10200, time: "60-90 perc", material: "", rag: "" },
-        { name: "Evolution tőfestés vágással", price: 11200, time: "60-90 perc", material: "", rag: "" },
-        { name: "Evolution festés", price: 13000, time: "60-90 perc", material: "", rag: "" },
-        { name: "Evolution festés vágással", price: 14000, time: "60-90 perc", material: "", rag: "" },
-
-        { name: "Ombré/szabadkézi technika", price: 10000, time: "2 óra 30 perc", material: "+ anyag", rag: "" },
-
-        { name: "Tőfestés, melír", price: 16000, time: "3 óra 30 perc", material: "", rag: " -tól" },
-        { name: "Teljes festés, melír", price: 16000, time: "60-90 perc", material: "", rag: " -tól" },
-
-        { name: "Töredezés elleni kezelés", price: 15000, time: "60-90 perc", material: "4 lépéses", rag: "" },
-        { name: "Hajhullás elleni kezelés", price: 12000, time: "60-90 perc", material: "3 lépéses", rag: "" },
-
-        { name: "Vasalás/Göndörítés/Trimelés", price: 2000, time: "40 perc", material: "", rag: "" },
-      ],
-    },
-    ferfi: [
-      { name: "Férfi hajvágás mosással", price: 4000, time: "40 perc", material: "", rag: "" },
-      { name: "Férfi hajvágás mosás nélkül", price: 3500, time: "30 perc", material: "", rag: "" },
-      { name: "Gépi egyhossz", price: 3000, time: "20 perc", material: "", rag: "" },
-      { name: "Gépi átmenet", price: 3200, time: "25 perc", material: "", rag: "" },
-    ],
-    gyerek: [
-      { name: "Fiú hajvágás 10 éves korig", price: 3600, time: "35 perc", material: "", rag: "" },
-      { name: "Fiú hajmosás, szárítás", price: 2500, time: "20 perc", material: "", rag: "" },
-      { name: "Leány hajvágás 10 éves korig", price: 4500, time: "60 perc", material: "", rag: "" },
-      { name: "Leány hajmosás, szárítás", price: 3500, time: "20 perc", material: "", rag: "" },
-    ],
-  };
-
-  type ServiceItem = {
-    label: string;
-    services: { name: string; price: number; time: string; material: string; rag: string }[];
-  };
-
-  const allServices: ServiceItem[] =
+  const allServices: { label: string; services: ServiceItem[] }[] =
     selectedCategory === "no"
       ? [{ label: selectedLength, services: servicesData.no[selectedLength] }]
       : selectedCategory === "ferfi"
@@ -120,22 +64,24 @@ const Service = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08, // Changed from 0.1 to 0.05
+        staggerChildren: 0.08,
       },
     },
-    exit: { opacity: 0, transition: { duration: 0.2 } }, // Changed from 0.2 to 0.1
+    exit: { opacity: 0, transition: { duration: 0.2 } },
   };
 
   const serviceVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.15, ease: "easeOut" } }, // Changed from 0.3 to 0.15
+    visible: { opacity: 1, transition: { duration: 0.15, ease: "easeOut" } },
   };
 
   return (
     <div className="bg-gradient-to-t from-[#9f8e53] to-[#54402f] pb-4 sm:pb-5 md:pb-8">
       <div className="grid p-4 sm:p-6 h-auto w-full max-w-5xl mx-auto scroll-mt-20" id="szolgaltatasok">
         <h1 className="text-2xl sm:text-3xl justify-self-center my-8 sm:my-12 text-white">Szolgáltatások</h1>
-        <p className="text-center mb-10 text-sm opacity-80 mx-7">*Hajfestés esetén csak telefonos konzultációt követően lehet foglalni<br /> Megértéseteket köszönöm!</p>
+        <p className="text-center mb-10 text-sm opacity-80 mx-7">
+          *Hajfestés esetén csak telefonos konzultációt követően lehet foglalni<br /> Megértéseteket köszönöm!
+        </p>
 
         {/* Felső gombok */}
         <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-8">
@@ -242,23 +188,22 @@ const Service = () => {
                       key={index}
                       variants={serviceVariants}
                       className="flex flex-row justify-between items-center p-3 sm:p-4 border border-gray-300 rounded-lg bg-white bg-opacity-10 shadow-md text-white transition-transform duration-300 hover:scale-105 cursor-pointer"
-                      onClick={() => window.open("https://markusszalon.salonic.hu/showServices/?employeeId=23182&placeId=10566&serviceId=0", "_blank")}
+                      onClick={() =>
+                        window.open(
+                          "https://markusszalon.salonic.hu/showServices/?employeeId=23182&placeId=10566&serviceId=0",
+                          "_blank"
+                        )
+                      }
                     >
                       <div className="flex-1">
                         <p className="text-sm custom:text-xl sm:text-lg md:text-lg font-medium">{service.name}</p>
                         <p className="text-xs sm:text-sm opacity-80">{service.time}</p>
                       </div>
-                      <div className="">
-
-                      <p className="text-sm sm:text-base md:text-lg font-medium text-right w-20 sm:w-24 md:w-28 text-nowrap">
-                        {formatPrice(service.price)} Ft
-
-                        {service.rag}
+                      <div>
+                        <p className="text-sm sm:text-base md:text-lg font-medium text-right w-20 sm:w-24 md:w-28 text-nowrap">
+                          {formatPrice(service.price)} Ft {service.rag}
                         </p>
-
-                      <p className="text-xs sm:text-sm opacity-80 text-right lg:mr-2">
-                        {service.material}
-                      </p>
+                        <p className="text-xs sm:text-sm opacity-80 text-right lg:mr-2">{service.material}</p>
                       </div>
                     </motion.div>
                   ))}

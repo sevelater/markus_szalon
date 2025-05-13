@@ -1,0 +1,70 @@
+{
+  "no": {
+    "rovid": [
+      { "name": "Mosás, Szárítás", "price": 5000, "time": "35 perc", "material": "", "rag": "" },
+      { "name": "Mosás, Vágás, Szárítás", "price": 6000, "time": "50 perc", "material": "", "rag": "" },
+      { "name": "Tőszőkítés", "price": 10000, "time": "2 óra", "material": "+ anyag", "rag": "" },
+      { "name": "Teljes szőkítés", "price": 12000, "time": "2 óra", "material": "+ anyag", "rag": "" },
+      { "name": "Ammóniamentes tőfestés", "price": 9000, "time": "90 perc", "material": "", "rag": "" },
+      { "name": "Ammóniamentes festés", "price": 11500, "time": "2 óra", "material": "", "rag": "" },
+      { "name": "Evolution tőfestés", "price": 7800, "time": "60-90 perc", "material": "", "rag": "" },
+      { "name": "Evolution tőfestés vágással", "price": 8800, "time": "60-90 perc", "material": "", "rag": "" },
+      { "name": "Evolution festés", "price": 9000, "time": "60-90 perc", "material": "", "rag": "" },
+      { "name": "Evolution festés vágással", "price": 10000, "time": "60-90 perc", "material": "", "rag": "" },
+      { "name": "Ombré/szabadkézi technika", "price": 10000, "time": "2 óra", "material": "+ anyag", "rag": "" },
+      { "name": "Tőfestés, melír", "price": 10000, "time": "2 óra", "material": "", "rag": " -tól" },
+      { "name": "Teljes festés, melír", "price": 10000, "time": "60-90 perc", "material": "", "rag": " -tól" },
+      { "name": "Töredezés elleni kezelés", "price": 10500, "time": "60-90 perc", "material": "4 lépéses", "rag": "" },
+      { "name": "Hajhullás elleni kezelés", "price": 8000, "time": "60-90 perc", "material": "3 lépéses", "rag": "" },
+      { "name": "Vasalás/Göndörítés/Trimelés", "price": 1000, "time": "20 perc", "material": "", "rag": "" }
+    ],
+    "felhoszu": [
+      { "name": "Mosás, Szárítás", "price": 6000, "time": "50 perc", "material": "", "rag": "" },
+      { "name": "Mosás, Vágás, Szárítás", "price": 7000, "time": "60 perc", "material": "", "rag": "" },
+      { "name": "Tőszőkítés", "price": 12500, "time": "2 óra 30 perc", "material": "+ anyag", "rag": "" },
+      { "name": "Teljes szőkítés", "price": 15500, "time": "3 óra", "material": "+ anyag", "rag": "" },
+      { "name": "Ammóniamentes tőfestés", "price": 12000, "time": "2 óra", "material": "", "rag": "" },
+      { "name": "Ammóniamentes festés", "price": 14500, "time": "2 óra 30 perc", "material": "", "rag": "" },
+      { "name": "Evolution tőfestés", "price": 9000, "time": "60-90 perc", "material": "", "rag": "" },
+      { "name": "Evolution tőfestés vágással", "price": 10000, "time": "60-90 perc", "material": "", "rag": "" },
+      { "name": "Evolution festés", "price": 11000, "time": "60-90 perc", "material": "", "rag": "" },
+      { "name": "Evolution festés vágással", "price": 12000, "time": "60-90 perc", "material": "", "rag": "" },
+      { "name": "Ombré/szabadkézi technika", "price": 10000, "time": "2 óra 30 perc", "material": "+ anyag", "rag": "" },
+      { "name": "Tőfestés, melír", "price": 13000, "time": "3 óra", "material": "", "rag": " -tól" },
+      { "name": "Teljes festés, melír", "price": 13000, "time": "60-90 perc", "material": "", "rag": " -tól" },
+      { "name": "Töredezés elleni kezelés", "price": 13000, "time": "60-90 perc", "material": "4 lépéses", "rag": "" },
+      { "name": "Hajhullás elleni kezelés", "price": 10000, "time": "60-90 perc", "material": "3 lépéses", "rag": "" },
+      { "name": "Vasalás/Göndörítés/Trimelés", "price": 1500, "time": "30 perc", "material": "", "rag": "" }
+    ],
+    "hosszu": [
+      { "name": "Mosás, Szárítás", "price": 7000, "time": "60 perc", "material": "", "rag": "" },
+      { "name": "Mosás, Vágás, Szárítás", "price": 8000, "time": "70 perc", "material": "", "rag": "" },
+      { "name": "Tőszőkítés", "price": 16000, "time": "3 óra", "material": "+ anyag", "rag": "" },
+      { "name": "Teljes szőkítés", "price": 19000, "time": "4 óra", "material": "+ anyag", "rag": "" },
+      { "name": "Ammóniamentes tőfestés", "price": 15000, "time": "2 óra 30 perc", "material": "", "rag": "" },
+      { "name": "Ammóniamentes festés", "price": 17500, "time": "2 óra 50 perc", "material": "", "rag": "" },
+      { "name": "Evolution tőfestés", "price": 10200, "time": "60-90 perc", "material": "", "rag": "" },
+      { "name": "Evolution tőfestés vágással", "price": 11200, "time": "60-90 perc", "material": "", "rag": "" },
+      { "name": "Evolution festés", "price": 13000, "time": "60-90 perc", "material": "", "rag": "" },
+      { "name": "Evolution festés vágással", "price": 14000, "time": "60-90 perc", "material": "", "rag": "" },
+      { "name": "Ombré/szabadkézi technika", "price": 10000, "time": "2 óra 30 perc", "material": "+ anyag", "rag": "" },
+      { "name": "Tőfestés, melír", "price": 16000, "time": "3 óra 30 perc", "material": "", "rag": " -tól" },
+      { "name": "Teljes festés, melír", "price": 16000, "time": "60-90 perc", "material": "", "rag": " -tól" },
+      { "name": "Töredezés elleni kezelés", "price": 15000, "time": "60-90 perc", "material": "4 lépéses", "rag": "" },
+      { "name": "Hajhullás elleni kezelés", "price": 12000, "time": "60-90 perc", "material": "3 lépéses", "rag": "" },
+      { "name": "Vasalás/Göndörítés/Trimelés", "price": 2000, "time": "40 perc", "material": "", "rag": "" }
+    ]
+  },
+  "ferfi": [
+    { "name": "Férfi hajvágás mosással", "price": 4000, "time": "40 perc", "material": "", "rag": "" },
+    { "name": "Férfi hajvágás mosás nélkül", "price": 3500, "time": "30 perc", "material": "", "rag": "" },
+    { "name": "Gépi egyhossz", "price": 3000, "time": "20 perc", "material": "", "rag": "" },
+    { "name": "Gépi átmenet", "price": 3200, "time": "25 perc", "material": "", "rag": "" }
+  ],
+  "gyerek": [
+    { "name": "Fiú hajvágás 10 éves korig", "price": 3600, "time": "35 perc", "material": "", "rag": "" },
+    { "name": "Fiú hajmosás, szárítás", "price": 2500, "time": "20 perc", "material": "", "rag": "" },
+    { "name": "Leány hajvágás 10 éves korig", "price": 4500, "time": "60 perc", "material": "", "rag": "" },
+    { "name": "Leány hajmosás, szárítás", "price": 3500, "time": "20 perc", "material": "", "rag": "" }
+  ]
+}
