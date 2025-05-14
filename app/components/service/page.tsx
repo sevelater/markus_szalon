@@ -29,8 +29,12 @@ const formatPrice = (price: number): string => {
 };
 
 const Service = () => {
-  const [selectedCategory, setSelectedCategory] = useState<"no" | "ferfi" | "gyerek">("no");
-  const [selectedLength, setSelectedLength] = useState<"rovid" | "felhoszu" | "hosszu">("rovid");
+  const [selectedCategory, setSelectedCategory] = useState<
+    "no" | "ferfi" | "gyerek"
+  >("no");
+  const [selectedLength, setSelectedLength] = useState<
+    "rovid" | "felhoszu" | "hosszu"
+  >("rovid");
   const [servicesData, setServicesData] = useState<ServicesData | null>(null);
 
   // Szolgáltatások lekérése Firestore-ból
@@ -77,10 +81,16 @@ const Service = () => {
 
   return (
     <div className="bg-gradient-to-t from-[#9f8e53] to-[#54402f] pb-4 sm:pb-5 md:pb-8">
-      <div className="grid p-4 sm:p-6 h-auto w-full max-w-5xl mx-auto scroll-mt-20" id="szolgaltatasok">
-        <h1 className="text-2xl sm:text-3xl justify-self-center my-8 sm:my-12 text-white">Szolgáltatások</h1>
+      <div
+        className="grid p-4 sm:p-6 h-auto w-full max-w-5xl mx-auto scroll-mt-20"
+        id="szolgaltatasok"
+      >
+        <h1 className="text-2xl sm:text-3xl justify-self-center my-8 sm:my-12 text-white">
+          Szolgáltatások
+        </h1>
         <p className="text-center mb-10 text-sm opacity-80 mx-7">
-          *Hajfestés esetén csak telefonos konzultációt követően lehet foglalni<br /> Megértéseteket köszönöm!
+          *Hajfestés esetén csak telefonos konzultációt követően lehet foglalni
+          <br /> Megértéseteket köszönöm!
         </p>
 
         {/* Felső gombok */}
@@ -188,22 +198,22 @@ const Service = () => {
                       key={index}
                       variants={serviceVariants}
                       className="flex flex-row justify-between items-center p-3 sm:p-4 border border-gray-300 rounded-lg bg-white bg-opacity-10 shadow-md text-white transition-transform duration-300 hover:scale-105 cursor-pointer"
-                      onClick={() =>
-                        window.open(
-                          "https://markusszalon.salonic.hu/showServices/?employeeId=23182&placeId=10566&serviceId=0",
-                          "_blank"
-                        )
-                      }
                     >
                       <div className="flex-1">
-                        <p className="text-sm custom:text-xl sm:text-lg md:text-lg font-medium">{service.name}</p>
-                        <p className="text-xs sm:text-sm opacity-80">{service.time}</p>
+                        <p className="text-sm custom:text-xl sm:text-lg md:text-lg font-medium">
+                          {service.name}
+                        </p>
+                        <p className="text-xs sm:text-sm opacity-80">
+                          {service.time}
+                        </p>
                       </div>
                       <div>
                         <p className="text-sm sm:text-base md:text-lg font-medium text-right w-20 sm:w-24 md:w-28 text-nowrap">
                           {formatPrice(service.price)} Ft {service.rag}
                         </p>
-                        <p className="text-xs sm:text-sm opacity-80 text-right lg:mr-2">{service.material}</p>
+                        <p className="text-xs sm:text-sm opacity-80 text-right lg:mr-2">
+                          {service.material}
+                        </p>
                       </div>
                     </motion.div>
                   ))}
