@@ -415,7 +415,7 @@ const Admin = () => {
                     : "bg-transparent hover:bg-[#8d7341] hover:bg-opacity-20"
                 }`}
               >
-                Gyerek
+                Gyermek
               </button>
             </div>
 

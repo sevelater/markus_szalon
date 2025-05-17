@@ -15,7 +15,7 @@ export const links: LinkItem[] = [
   { href: "/hajgyogyaszat", text: "Hajgyógyászat", basePath: "/hajgyogyaszat" },
   { 
     href: "/#portfolio", 
-    text: "Portfólióm",
+    text: "Portfólió",
     basePath: "/", 
     alternatePaths: {
       "/hajgyogyaszat": "/#portfolio"
