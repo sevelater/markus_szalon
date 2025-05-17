@@ -2,9 +2,10 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { links, getLinkHref } from "../consts";
+
+import { SmoothScrollLink } from '../SmoothScrollLink'
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -83,13 +84,12 @@ function Navbar() {
                     {link.text}
                   </motion.button>
                 ) : (
-                  <Link href={getLinkHref(link, pathname)}>
-                    <motion.span
-                      className="text-white text-lg px-4 py-2 relative z-10 hover:text-opacity-70 transition-all duration-200 ease-in-out"
-                    >
-                      {link.text}
-                    </motion.span>
-                  </Link>
+                  <SmoothScrollLink
+                    href={getLinkHref(link, pathname)}
+                    className="text-white text-lg px-4 py-2 relative z-10 hover:text-opacity-70 transition-all duration-200 ease-in-out"
+                  >
+                    {link.text}
+                  </SmoothScrollLink>
                 )}
               </li>
             ))}
@@ -159,13 +159,13 @@ function Navbar() {
                     </li>
                   ) : (
                     <li key={link.href}>
-                      <Link
+                      <SmoothScrollLink
                         href={getLinkHref(link, pathname)}
                         className="block p-2 hover:text-[#c5b87f] transition-colors w-auto"
                         onClick={() => setIsOpen(false)}
                       >
                         {link.text}
-                      </Link>
+                      </SmoothScrollLink>
                     </li>
                   )
                 )}

@@ -24,6 +24,7 @@ interface ServiceItem {
   time: string;
   material: string;
   rag: string;
+  serialNumber: number;
 }
 
 interface ServicesData {
@@ -194,11 +195,36 @@ const Admin = () => {
   ) => {
     if (!servicesData) return;
     const updatedServices: ServicesData = { ...servicesData };
+    let targetArray: ServiceItem[];
+
     if (category === "no" && length) {
-      updatedServices.no[length][index] = updatedService;
-    } else if (category !== "no") {
-      updatedServices[category][index] = updatedService;
+      targetArray = updatedServices.no[length];
+    } else if (category === "ferfi") {
+      targetArray = updatedServices.ferfi;
+    } else {
+      targetArray = updatedServices.gyerek;
     }
+
+    // Ellenőrizzük, hogy az új serialNumber létezik-e már
+    const serialNumberExists = targetArray.some(
+      (item, i) => i !== index && item.serialNumber === updatedService.serialNumber
+    );
+
+    // Ha a serialNumber létezik, növeljük eggyel a >= serialNumber-ű elemek sorszámát (kivéve a szerkesztett elemet)
+    if (serialNumberExists) {
+      targetArray.forEach((item, i) => {
+        if (i !== index && item.serialNumber >= updatedService.serialNumber) {
+          item.serialNumber += 1;
+        }
+      });
+    }
+
+    // Frissítjük a szerkesztett szolgáltatást
+    targetArray[index] = updatedService;
+
+    // Rendezés a sorszámok alapján
+    targetArray.sort((a, b) => a.serialNumber - b.serialNumber);
+
     try {
       const docRef = doc(db, "settings", "services");
       await setDoc(docRef, updatedServices);
@@ -241,11 +267,36 @@ const Admin = () => {
   ) => {
     if (!servicesData) return;
     const updatedServices: ServicesData = { ...servicesData };
+    let targetArray: ServiceItem[];
+
     if (category === "no" && length) {
-      updatedServices.no[length].push(newService);
-    } else if (category !== "no") {
-      updatedServices[category].push(newService);
+      targetArray = updatedServices.no[length];
+    } else if (category === "ferfi") {
+      targetArray = updatedServices.ferfi;
+    } else {
+      targetArray = updatedServices.gyerek;
     }
+
+    // Ellenőrizzük, hogy az új serialNumber létezik-e már
+    const serialNumberExists = targetArray.some(
+      (item) => item.serialNumber === newService.serialNumber
+    );
+
+    // Ha a serialNumber létezik, növeljük eggyel a >= serialNumber-ű elemek sorszámát
+    if (serialNumberExists) {
+      targetArray.forEach((item) => {
+        if (item.serialNumber >= newService.serialNumber) {
+          item.serialNumber += 1;
+        }
+      });
+    }
+
+    // Hozzáadjuk az új szolgáltatást
+    targetArray.push(newService);
+
+    // Rendezés a sorszámok alapján
+    targetArray.sort((a, b) => a.serialNumber - b.serialNumber);
+
     try {
       const docRef = doc(db, "settings", "services");
       await setDoc(docRef, updatedServices);
@@ -257,7 +308,7 @@ const Admin = () => {
     }
   };
 
-  // Csak a bejelentkező űrlap jelenik meg, ha nincs bejelentkezve
+  // Ha nincs bejelentkezve, csak a bejelentkező űrlap jelenik meg
   if (!user) {
     return (
       <div className="bg-gradient-to-t from-[#9f8e53] to-[#54402f] min-h-screen pb-4 pt-0 lg:pt-16 flex items-center justify-center">
@@ -296,7 +347,7 @@ const Admin = () => {
     );
   }
 
-  // Ha nem admin, csak hibaüzenet
+  // Ha nem admin, hibaüzenet
   if (!isAdmin) {
     return (
       <div className="bg-gradient-to-t from-[#9f8e53] to-[#54402f] min-h-screen pb-4 pt-0 lg:pt-16 flex items-center justify-center">
@@ -521,6 +572,13 @@ const Admin = () => {
                                   "rag"
                                 ) as HTMLInputElement
                               ).value,
+                              serialNumber: parseInt(
+                                (
+                                  form.elements.namedItem(
+                                    "serialNumber"
+                                  ) as HTMLInputElement
+                                ).value
+                              ),
                             };
                             addService(
                               selectedCategory,
@@ -529,6 +587,15 @@ const Admin = () => {
                             );
                           }}
                         >
+                          <label className="block mt-2 text-white text-sm sm:text-base">
+                            Sorszám:
+                            <input
+                              type="number"
+                              name="serialNumber"
+                              defaultValue={services.length + 1}
+                              className="mt-1 p-2 rounded w-full text-black text-sm sm:text-base"
+                            />
+                          </label>
                           <label className="block mt-2 text-white text-sm sm:text-base">
                             Név:
                             <input
@@ -599,198 +666,218 @@ const Admin = () => {
                       exit="exit"
                       className="space-y-2 sm:space-y-3 md:space-y-4"
                     >
-                      {services.map((service, index) => (
-                        <motion.div
-                          key={`${selectedCategory}-${selectedLength}-${service.name}-${index}`}
-                          variants={serviceVariants}
-                          className="w-full max-w-[1020px] mx-auto"
-                        >
-                          <AnimatePresence mode="popLayout">
-                            {editingService?.index === index &&
-                            editingService?.category === selectedCategory &&
-                            (editingService?.length === selectedLength ||
-                              selectedCategory !== "no") ? (
-                              <motion.div
-                                variants={formVariants}
-                                initial="hidden"
-                                animate="visible"
-                                exit="exit"
-                                className="w-full max-w-md mx-auto p-4 sm:p-6 bg-white bg-opacity-40 rounded-xl shadow-lg"
-                              >
-                                <h2 className="text-base sm:text-xl text-white mb-4">
-                                  Szolgáltatás szerkesztése
-                                </h2>
-                                <form
-                                  onSubmit={(
-                                    e: React.FormEvent<HTMLFormElement>
-                                  ) => {
-                                    e.preventDefault();
-                                    const form = e.target as HTMLFormElement;
-                                    const updatedService: ServiceItem = {
-                                      name: (
-                                        form.elements.namedItem(
-                                          "name"
-                                        ) as HTMLInputElement
-                                      ).value,
-                                      price: parseInt(
-                                        (
-                                          form.elements.namedItem(
-                                            "price"
-                                          ) as HTMLInputElement
-                                        ).value
-                                      ),
-                                      time: (
-                                        form.elements.namedItem(
-                                          "time"
-                                        ) as HTMLInputElement
-                                      ).value,
-                                      material: (
-                                        form.elements.namedItem(
-                                          "material"
-                                        ) as HTMLInputElement
-                                      ).value,
-                                      rag: (
-                                        form.elements.namedItem(
-                                          "rag"
-                                        ) as HTMLInputElement
-                                      ).value,
-                                    };
-                                    updateService(
-                                      editingService.category,
-                                      editingService.length,
-                                      editingService.index,
-                                      updatedService
-                                    );
-                                  }}
+                      {services
+                        .sort((a, b) => a.serialNumber - b.serialNumber)
+                        .map((service, index) => (
+                          <motion.div
+                            key={`${selectedCategory}-${selectedLength}-${service.name}-${index}`}
+                            variants={serviceVariants}
+                            className="w-full max-w-[1020px] mx-auto"
+                          >
+                            <AnimatePresence mode="popLayout">
+                              {editingService?.index === index &&
+                              editingService?.category === selectedCategory &&
+                              (editingService?.length === selectedLength ||
+                                selectedCategory !== "no") ? (
+                                <motion.div
+                                  variants={formVariants}
+                                  initial="hidden"
+                                  animate="visible"
+                                  exit="exit"
+                                  className="w-full max-w-md mx-auto p-4 sm:p-6 bg-white bg-opacity-40 rounded-xl shadow-lg"
                                 >
-                                  <label className="block mt-2 text-white text-sm sm:text-base">
-                                    Név:
-                                    <input
-                                      type="text"
-                                      name="name"
-                                      defaultValue={editingService.service.name}
-                                      className="mt-1 p-2 rounded w-full text-black text-sm sm:text-base"
-                                    />
-                                  </label>
-                                  <label className="block mt-2 text-white text-sm sm:text-base">
-                                    Ár:
-                                    <input
-                                      type="number"
-                                      name="price"
-                                      defaultValue={
-                                        editingService.service.price
-                                      }
-                                      className="mt-1 p-2 rounded w-full text-black text-sm sm:text-base"
-                                    />
-                                  </label>
-                                  <label className="block mt-2 text-white text-sm sm:text-base">
-                                    Időtartam:
-                                    <input
-                                      type="text"
-                                      name="time"
-                                      defaultValue={editingService.service.time}
-                                      className="mt-1 p-2 rounded w-full text-black text-sm sm:text-base"
-                                    />
-                                  </label>
-                                  <label className="block mt-2 text-white text-sm sm:text-base">
-                                    Ár alatti szöveg:
-                                    <input
-                                      type="text"
-                                      name="material"
-                                      defaultValue={
-                                        editingService.service.material
-                                      }
-                                      className="mt-1 p-2 rounded w-full text-black text-sm sm:text-base"
-                                    />
-                                  </label>
-                                  <label className="block mt-2 text-white text-sm sm:text-base">
-                                    Ár melletti szöveg:
-                                    <input
-                                      type="text"
-                                      name="rag"
-                                      defaultValue={editingService.service.rag}
-                                      className="mt-1 p-2 rounded w-full text-black text-sm sm:text-base"
-                                    />
-                                  </label>
-                                  <div className="mt-4 flex flex-col sm:flex-row gap-2 sm:gap-4">
-                                    <button
-                                      type="submit"
-                                      className="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm sm:text-base"
-                                    >
-                                      Mentés
-                                    </button>
-                                    <button
-                                      type="button"
-                                      onClick={() => setEditingService(null)}
-                                      className="px-4 py-2 bg-gray-500 text-white rounded-lg text-sm sm:text-base"
-                                    >
-                                      Mégse
-                                    </button>
+                                  <h2 className="text-base sm:text-xl text-white mb-4">
+                                    Szolgáltatás szerkesztése
+                                  </h2>
+                                  <form
+                                    onSubmit={(
+                                      e: React.FormEvent<HTMLFormElement>
+                                    ) => {
+                                      e.preventDefault();
+                                      const form = e.target as HTMLFormElement;
+                                      const updatedService: ServiceItem = {
+                                        name: (
+                                          form.elements.namedItem(
+                                            "name"
+                                          ) as HTMLInputElement
+                                        ).value,
+                                        price: parseInt(
+                                          (
+                                            form.elements.namedItem(
+                                              "price"
+                                            ) as HTMLInputElement
+                                          ).value
+                                        ),
+                                        time: (
+                                          form.elements.namedItem(
+                                            "time"
+                                          ) as HTMLInputElement
+                                        ).value,
+                                        material: (
+                                          form.elements.namedItem(
+                                            "material"
+                                          ) as HTMLInputElement
+                                        ).value,
+                                        rag: (
+                                          form.elements.namedItem(
+                                            "rag"
+                                          ) as HTMLInputElement
+                                        ).value,
+                                        serialNumber: parseInt(
+                                          (
+                                            form.elements.namedItem(
+                                              "serialNumber"
+                                            ) as HTMLInputElement
+                                          ).value
+                                        ),
+                                      };
+                                      updateService(
+                                        editingService.category,
+                                        editingService.length,
+                                        editingService.index,
+                                        updatedService
+                                      );
+                                    }}
+                                  >
+                                    <label className="block mt-2 text-white text-sm sm:text-base">
+                                      Sorszám:
+                                      <input
+                                        type="number"
+                                        name="serialNumber"
+                                        defaultValue={
+                                          editingService.service.serialNumber
+                                        }
+                                        className="mt-1 p-2 rounded w-full text-black text-sm sm:text-base"
+                                      />
+                                    </label>
+                                    <label className="block mt-2 text-white text-sm sm:text-base">
+                                      Név:
+                                      <input
+                                        type="text"
+                                        name="name"
+                                        defaultValue={editingService.service.name}
+                                        className="mt-1 p-2 rounded w-full text-black text-sm sm:text-base"
+                                      />
+                                    </label>
+                                    <label className="block mt-2 text-white text-sm sm:text-base">
+                                      Ár:
+                                      <input
+                                        type="number"
+                                        name="price"
+                                        defaultValue={
+                                          editingService.service.price
+                                        }
+                                        className="mt-1 p-2 rounded w-full text-black text-sm sm:text-base"
+                                      />
+                                    </label>
+                                    <label className="block mt-2 text-white text-sm sm:text-base">
+                                      Időtartam:
+                                      <input
+                                        type="text"
+                                        name="time"
+                                        defaultValue={editingService.service.time}
+                                        className="mt-1 p-2 rounded w-full text-black text-sm sm:text-base"
+                                      />
+                                    </label>
+                                    <label className="block mt-2 text-white text-sm sm:text-base">
+                                      Ár alatti szöveg:
+                                      <input
+                                        type="text"
+                                        name="material"
+                                        defaultValue={
+                                          editingService.service.material
+                                        }
+                                        className="mt-1 p-2 rounded w-full text-black text-sm sm:text-base"
+                                      />
+                                    </label>
+                                    <label className="block mt-2 text-white text-sm sm:text-base">
+                                      Ár melletti szöveg:
+                                      <input
+                                        type="text"
+                                        name="rag"
+                                        defaultValue={editingService.service.rag}
+                                        className="mt-1 p-2 rounded w-full text-black text-sm sm:text-base"
+                                      />
+                                    </label>
+                                    <div className="mt-4 flex flex-col sm:flex-row gap-2 sm:gap-4">
+                                      <button
+                                        type="submit"
+                                        className="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm sm:text-base"
+                                      >
+                                        Mentés
+                                      </button>
+                                      <button
+                                        type="button"
+                                        onClick={() => setEditingService(null)}
+                                        className="px-4 py-2 bg-gray-500 text-white rounded-lg text-sm sm:text-base"
+                                      >
+                                        Mégse
+                                      </button>
+                                    </div>
+                                  </form>
+                                </motion.div>
+                              ) : (
+                                <motion.div
+                                  variants={serviceVariants}
+                                  initial="hidden"
+                                  animate="visible"
+                                  exit="exit"
+                                  className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-3 sm:p-4 border border-gray-300 rounded-lg bg-white bg-opacity-10 shadow-md text-white mx-2 sm:mx-0"
+                                >
+                                  <div className="flex-1 mb-2 sm:mb-0">
+                                    <p className="text-sm sm:text-base md:text-lg font-medium break-words">
+                                      {service.serialNumber}. {service.name}
+                                    </p>
+                                    <p className="text-xs sm:text-sm opacity-80">
+                                      {service.time}
+                                    </p>
                                   </div>
-                                </form>
-                              </motion.div>
-                            ) : (
-                              <motion.div
-                                variants={serviceVariants}
-                                initial="hidden"
-                                animate="visible"
-                                exit="exit"
-                                className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-3 sm:p-4 border border-gray-300 rounded-lg bg-white bg-opacity-10 shadow-md text-white mx-2 sm:mx-0"
-                              >
-                                <div className="flex-1 mb-2 sm:mb-0">
-                                  <p className="text-sm sm:text-base md:text-lg font-medium break-words">
-                                    {service.name}
-                                  </p>
-                                  <p className="text-xs sm:text-sm opacity-80">
-                                    {service.time}
-                                  </p>
-                                </div>
-                                <div className="flex-1 sm:flex-none text-left sm:text-right mb-2 sm:mb-0">
-                                  <p className="text-sm sm:text-base md:text-lg font-medium break-words">
-                                    {formatPrice(service.price)} Ft{" "}
-                                    {service.rag}
-                                  </p>
-                                  <p className="text-xs sm:text-sm opacity-80 break-words">
-                                    {service.material}
-                                  </p>
-                                </div>
-                                <div className="flex gap-2 sm:ml-4">
-                                  <button
-                                    onClick={() =>
-                                      setEditingService({
-                                        category: selectedCategory,
-                                        length:
+                                  <div className="flex-1 sm:flex-none text-left sm:text-right mb-2 sm:mb-0">
+                                    <p className="text-sm sm:text-base md:text-lg font-medium break-words">
+                                      {formatPrice(service.price)} Ft{" "}
+                                      {service.rag}
+                                    </p>
+                                    <p className="text-xs sm:text-sm opacity-80 break-words">
+                                      {service.material}
+                                    </p>
+                                  </div>
+                                  <div className="flex gap-2 sm:ml-4">
+                                    <button
+                                      onClick={() =>
+                                        setEditingService({
+                                          category: selectedCategory,
+                                          length:
+                                            selectedCategory === "no"
+                                              ? selectedLength
+                                              : null,
+                                          index,
+                                          service,
+                                        })
+                                      }
+                                      className="px-2 sm:px-3 py-1 sm:py-2 bg-yellow-500 text-white rounded text-xs sm:text-sm"
+                                    >
+                                      Szerkesztés
+                                    </button>
+                                    <button
+                                      onClick={() =>
+                                        deleteService(
+                                          selectedCategory,
                                           selectedCategory === "no"
                                             ? selectedLength
                                             : null,
-                                        index,
-                                        service,
-                                      })
-                                    }
-                                    className="px-2 sm:px-3 py-1 sm:py-2 bg-yellow-500 text-white rounded text-xs sm:text-sm"
-                                  >
-                                    Szerkesztés
-                                  </button>
-                                  <button
-                                    onClick={() =>
-                                      deleteService(
-                                        selectedCategory,
-                                        selectedCategory === "no"
-                                          ? selectedLength
-                                          : null,
-                                        index
-                                      )
-                                    }
-                                    className="px-2 sm:px-3 py-1 sm:py-2 bg-red-500 text-white rounded text-xs sm:text-sm"
-                                  >
-                                    Törlés
-                                  </button>
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </motion.div>
-                      ))}
+                                          index
+                                        )
+                                      }
+                                      className="px-2 sm:px-3 py-1 sm:py-2 bg-red-500 text-white rounded text-xs sm:text-sm"
+                                    >
+                                      Törlés
+                                    </button>
+                                  </div>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </motion.div>
+                        ))}
                     </motion.div>
                   </AnimatePresence>
                 </div>
