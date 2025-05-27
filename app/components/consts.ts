@@ -10,23 +10,23 @@ interface LinkItem {
 }
 
 export const links: LinkItem[] = [
-  { href: "/", text: "Főoldal"},
+  // { href: "/", text: "Főoldal"},
   { href: "/#szolgaltatasok", text: "Szolgáltatások", basePath: "/" },
   { href: "/hajgyogyaszat", text: "Hajgyógyászat", basePath: "/hajgyogyaszat" },
   { 
-    href: "/#portfolio", 
+    href: "/portfolio", 
     text: "Portfólió",
-    basePath: "/", 
+    basePath: "/portfolio", 
     alternatePaths: {
-      "/hajgyogyaszat": "/#portfolio"
+      "/hajgyogyaszat": "/portfolio"
     }
   },
-  { 
-    href: "https://www.facebook.com/profile.php?id=61568795877252&sk=photos", 
-    text: "Referencia", 
-    external: true 
-  },
-  { href: "/#elerhetosegek", text: "Elérhetőségek", basePath: "/" },
+  // { 
+  //   href: "https://www.facebook.com/profile.php?id=61568795877252&sk=photos", 
+  //   text: "Referencia", 
+  //   external: true 
+  // },
+  // { href: "/#elerhetosegek", text: "Elérhetőségek", basePath: "/" },
 ];
 
 export const getLinkHref = (link: LinkItem, currentPath: string): string => {

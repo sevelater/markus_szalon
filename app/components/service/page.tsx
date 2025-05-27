@@ -53,7 +53,63 @@ const Service = () => {
 
   // Betöltési állapot kezelése
   if (!servicesData) {
-    return <p>Betöltés...</p>;
+    return (
+      <div className="bg-gradient-to-t from-[#9f8e53] to-[#54402f] pb-4 sm:pb-5 md:pb-8">
+        <div
+          className="grid p-4 sm:p-6 h-auto w-full max-w-5xl mx-auto scroll-mt-20"
+          id="szolgaltatasok"
+        >
+          <h1 className="text-2xl sm:text-3xl justify-self-center my-8 sm:my-12 text-white">
+            Szolgáltatások
+          </h1>
+          <p className="text-center mb-10 text-sm opacity-80 mx-7">
+            *Hajfestés esetén csak telefonos konzultációt követően lehet
+            foglalni
+            <br /> Megértéseteket köszönöm!
+          </p>
+          {/* Felső gombok */}
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-8">
+            <button
+              onClick={() => {
+                setSelectedCategory("no");
+                setSelectedLength("rovid");
+              }}
+              className={`relative px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base md:text-lg font-semibold text-white border border-[#8d7341] rounded-md transition-all duration-300 ease-in-out ${
+                selectedCategory === "no"
+                  ? "bg-[#8d7341] bg-opacity-30"
+                  : "bg-transparent hover:bg-[#8d7341] hover:bg-opacity-20"
+              }`}
+            >
+              Női
+            </button>
+            <button
+              onClick={() => {
+                setSelectedCategory("ferfi");
+              }}
+              className={`relative px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base md:text-lg font-semibold text-white border border-[#8d7341] rounded-md transition-all duration-300 ease-in-out ${
+                selectedCategory === "ferfi"
+                  ? "bg-[#8d7341] bg-opacity-30"
+                  : "bg-transparent hover:bg-[#8d7341] hover:bg-opacity-20"
+              }`}
+            >
+              Férfi
+            </button>
+            <button
+              onClick={() => {
+                setSelectedCategory("gyerek");
+              }}
+              className={`relative px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base md:text-lg font-semibold text-white border border-[#8d7341] rounded-md transition-all duration-300 ease-in-out ${
+                selectedCategory === "gyerek"
+                  ? "bg-[#8d7341] bg-opacity-30"
+                  : "bg-transparent hover:bg-[#8d7341] hover:bg-opacity-20"
+              }`}
+            >
+              Gyerek
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   const allServices: { label: string; services: ServiceItem[] }[] =

@@ -5,7 +5,22 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { links, getLinkHref } from "../consts";
 
-import { SmoothScrollLink } from '../SmoothScrollLink'
+import { SmoothScrollLink } from "../SmoothScrollLink";
+
+// firebase-es frissítés + ikonok importálása
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
+import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+
+import { db } from "../../firebase"; // útvonalat igazítsd, ha más a szerkezet
+import { doc, onSnapshot } from "firebase/firestore";
+
+interface Contact {
+  phone: string;
+  email: string;
+  facebook: string;
+}
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +30,36 @@ function Navbar() {
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const { scrollY } = useScroll();
+
+  // firebase alapú frissítés
+
+  const [contact, setContact] = useState<Contact>({
+    phone: "+36 70 598 5439",
+    email: "gabika20040218@gmail.com",
+    facebook:
+      "https://www.facebook.com/profile.php?id=61568795877252&sk=photos",
+  });
+
+  useEffect(() => {
+    const docRef = doc(db, "settings", "general");
+    const unsubscribe = onSnapshot(
+      docRef,
+      (docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          if (data.contact) {
+            setContact({
+              phone: data.contact.phone || contact.phone,
+              email: data.contact.email || contact.email,
+              facebook: data.contact.facebook || contact.facebook,
+            });
+          }
+        }
+      },
+      (err) => console.error("Firestore hiba:", err)
+    );
+    return () => unsubscribe();
+  }, []);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
@@ -49,7 +94,10 @@ function Navbar() {
 
   const hamburgerVariants = {
     visible: { y: 0, transition: { duration: 0.2, ease: "easeOut" } },
-    hidden: { y: "-100%", transition: { duration: 0.2, ease: "easeOut", delay: 0.3 } },
+    hidden: {
+      y: "-100%",
+      transition: { duration: 0.2, ease: "easeOut", delay: 0.3 },
+    },
   };
 
   return (
@@ -65,20 +113,17 @@ function Navbar() {
         className="fixed left-0 w-full z-50 justify-items-center"
       >
         {/* Desktop navbar */}
-        <div className="hidden custom:flex justify-center items-center px-6 xl:px-12 py-4 w-full rounded-md backdrop-blur-md">
-          <ul className="flex gap-4 xl:gap-6 items-center">
-            <li className="group">
-              <motion.img
-                src="/logo.png"
-                alt="logó"
-                className="h-16 w-16 object-contain shadow-md rounded-full border-2 border-[#c5b87f] mr-12"
-              />
-            </li>
+
+        <div className="hidden lg:flex items-center px-6 xl:px-12 pt-5 w-full rounded-md">
+          <ul className="flex gap-3 xl:gap-4 items-center text-left">
             {links.map((link) => (
-              <li key={link.href} className="relative group tracking-wider font-medium">
+              <li
+                key={link.href}
+                className="relative group tracking-wider font-thin"
+              >
                 {link.external ? (
                   <motion.button
-                    className="text-white text-lg px-4 py-2 relative z-10 hover:text-opacity-70 transition-all duration-200 ease-in-out"
+                    className="text-white text-md px-4 py-2 relative z-10 hover:text-opacity-70 transition-all duration-200 ease-in-out"
                     onClick={() => window.open(link.href, "_blank")}
                   >
                     {link.text}
@@ -86,7 +131,7 @@ function Navbar() {
                 ) : (
                   <SmoothScrollLink
                     href={getLinkHref(link, pathname)}
-                    className="text-white text-lg px-4 py-2 relative z-10 hover:text-opacity-70 transition-all duration-200 ease-in-out"
+                    className="text-white text-md px-4 py-2 relative z-10 hover:text-opacity-70 transition-all duration-200 ease-in-out"
                   >
                     {link.text}
                   </SmoothScrollLink>
@@ -94,16 +139,33 @@ function Navbar() {
               </li>
             ))}
           </ul>
-          <button
-            className="text-lg p-4 px-12 border border-[#b49f5b] hover:bg-[#8d7341] hover:bg-opacity-60 rounded-2xl ml-10 transition-all duration-200 ease-in-out font-normal"
-            onClick={() =>
-              window.open(
-                "https://markusszalon.salonic.hu/showServices/?employeeId=23182&placeId=10566&serviceId=0"
-              )
-            }
-          >
-            Foglalás
-          </button>
+          <div className="ml-auto lg:flex hidden gap-4 pr-4 text-white text-normal absolute right-0 z-50 opacity-85">
+            <a
+              href={`tel:${contact.phone}`}
+              className="hover:opacity-80 trasition-all ease-in-out hover:scale-125 duration-300 transition-transform"
+            >
+              <FontAwesomeIcon icon={faPhone} />
+            </a>
+            <a
+              href={`mailto:${contact.email}`}
+              className="hover:opacity-80 trasition-all ease-in-out hover:scale-125 duration-300 transition-transform"
+            >
+              <FontAwesomeIcon icon={faEnvelope} />
+            </a>
+            <a
+              href={contact.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 trasition-all ease-in-out hover:scale-125 duration-300 transition-transform"
+            >
+              <FontAwesomeIcon icon={faFacebookF} />
+            </a>
+          </div>
+          <div className="hidden md:flex text-center justify-center text-2xl w-full left-0 absolute">
+            <a href="./" className="font-extralight tracking-wide">
+              MÁRKUS SZALON
+            </a>
+          </div>
         </div>
 
         {/* Hamburger menu */}
@@ -111,7 +173,7 @@ function Navbar() {
           variants={hamburgerVariants}
           initial="visible"
           animate={hidden ? "hidden" : "visible"}
-          className="custom:hidden fixed top-6 right-3 z-50 p-2"
+          className="lg:hidden fixed top-6 right-3 z-50 p-2"
         >
           <button
             ref={buttonRef}
@@ -170,6 +232,28 @@ function Navbar() {
                   )
                 )}
               </ul>
+              <div className="lg:hidden fixed bottom-2 w-full flex justify-center gap-8 text-white text-2xl z-50 opacity-85 pb-12">
+                <a
+                  href={`tel:${contact.phone}`}
+                  className="hover:opacity-60 transition-opacity"
+                >
+                  <FontAwesomeIcon icon={faPhone} />
+                </a>
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="hover:opacity-60 transition-opacity"
+                >
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </a>
+                <a
+                  href={contact.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-60 transition-opacity"
+                >
+                  <FontAwesomeIcon icon={faFacebookF} />
+                </a>
+              </div>
             </div>
           </div>
         )}
